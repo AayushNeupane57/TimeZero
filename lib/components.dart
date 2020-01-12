@@ -69,6 +69,53 @@ class ForgotPassword extends StatelessWidget {
     );
   }
 }
+class containerWithSize extends StatelessWidget {
+  final double height;
+  final double width;
+  final String text ;
+
+  containerWithSize(
+  this.height,
+  this.width,
+  this.text
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return  Container(
+      height: height,
+      width: width,
+      decoration: BoxDecoration(
+          color: Colors.redAccent,
+          borderRadius: BorderRadius.circular(10),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey,
+              blurRadius: 15,
+              offset: Offset(0,10),
+            ),
+            BoxShadow(
+              color: Colors.grey,
+                offset: Offset(0,0)
+            )
+          ]
+      ),
+      child: Center(
+        child: Text(
+          text,
+          style: TextStyle(
+            color: Colors.white,
+            fontFamily: "Poppins-Black",
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+
+      ),
+    );
+
+  }
+}
+
 class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -120,6 +167,7 @@ Widget create_Inkwell( BuildContext ctx, double height1, double width1, String s
           )
       )
   );
+
 
 }
 

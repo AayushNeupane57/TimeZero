@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:time_zero_ui/components.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -17,6 +18,65 @@ class _HomeState extends State<Home> {
 
         )
       ),
+      body:Column(
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              SizedBox(
+                width: 20,
+              ),
+              containerWithSize(100, 100, "Exp"),
+              SizedBox(
+                width: 5,
+              ),
+              Column(
+                children: <Widget>[
+                  containerWithSize(50,100,"fast foods"),
+                  SizedBox(
+                    height: 1,
+                  ),
+
+                  containerWithSize(50,100," Dinners"),
+                ],
+              ),
+              SizedBox(
+                width:5,
+              ),
+              Column(
+                children: <Widget>[
+                  containerWithSize(50,100,"Hotels"),
+                  SizedBox(
+                    height: 1,
+                  ),
+                  containerWithSize(50,100,"Resturants"),
+                ],
+              )
+            ]
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right:120),
+            child: Text(
+                "Popular Items ",
+              style: TextStyle(
+                fontSize: 30,
+                color: Colors.black12,
+              ),
+
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: <Widget>[
+           ],
+
+          )
+        ],
+        )
     );
   }
 }
