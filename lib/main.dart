@@ -33,13 +33,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +50,9 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 StackedLogo(),
+                SizedBox(
+                  height: 50,
+                ),
 
                 Text(
                   "TimezERo",
@@ -75,31 +71,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       width:20,
                     ),
                     Expanded(
-                      child: GestureDetector(
-                        onTap:(){
-                          Navigator.push(
-                              context, MaterialPageRoute(
-                            builder: (context)=>Login(),
-                          )
-                          );
-                        },
-                        child: Container(
-                            decoration: BoxDecoration(
-                              color:Colors.green,
-                              borderRadius: BorderRadius.circular(15),
-                            ),
-                          height:50,
-                          alignment: Alignment.center,
-                          child:Text(
-                            "Login",
-                            style:TextStyle(
-                              fontSize: 30,
-                              color: Colors.white,
-                            )
-                          )
+                      child: create_Inkwell(context, 65, 100,"Login")
 
-                        ),
-                      ),
                     ),
                     SizedBox(
                       width: 20,

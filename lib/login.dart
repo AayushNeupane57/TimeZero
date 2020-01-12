@@ -84,37 +84,7 @@ class Login extends StatelessWidget {
                 SizedBox(
                   width: 60,
                 ),
-                Container(
-                    width: 120.0,
-                    height: 65.0,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        gradient: LinearGradient(colors: [
-                          Color(0xFF17ead9),
-                          Color(0xFF6078ea),
-                        ])),
-                    child: Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.push(context,MaterialPageRoute(
-                              builder: (context)=>Home(),
-
-                            )
-                            );
-                          },
-                          child: Center(
-                              child: Text(
-                            "sign in",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 30,
-                              fontFamily: "Poppins-Black",
-                            ),
-                          )),
-                        )
-                    )
-                ),
+                create_Inkwell(context, 65, 120, "Sign In"),
                 SizedBox(
                   width: 20,
                 ),
