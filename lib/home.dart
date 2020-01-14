@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:time_zero_ui/components.dart';
+import 'components.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -25,18 +25,18 @@ class _HomeState extends State<Home> {
               SizedBox(
                 width: 20,
               ),
-              containerWithSize(100, 100, "Exp"),
+              ContainerWithSize(100, 100, "Exp"),
               SizedBox(
                 width: 5,
               ),
               Column(
                 children: <Widget>[
-                  containerWithSize(50,100,"fast foods"),
+                  ContainerWithSize(50,100,"fast foods"),
                   SizedBox(
                     height: 1,
                   ),
 
-                  containerWithSize(50,100," Dinners"),
+                  ContainerWithSize(50,100," Dinners"),
                 ],
               ),
               SizedBox(
@@ -44,11 +44,11 @@ class _HomeState extends State<Home> {
               ),
               Column(
                 children: <Widget>[
-                  containerWithSize(50,100,"Hotels"),
+                  ContainerWithSize(50,100,"Hotels"),
                   SizedBox(
                     height: 1,
                   ),
-                  containerWithSize(50,100,"Resturants"),
+                  ContainerWithSize(50,100,"Resturants"),
                 ],
               )
             ]

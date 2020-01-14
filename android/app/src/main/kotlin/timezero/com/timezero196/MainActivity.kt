@@ -1,4 +1,4 @@
-package neupane.time_zero_ui
+package timezero.com.timezero196
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

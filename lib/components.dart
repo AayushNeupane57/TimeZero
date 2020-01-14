@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:time_zero_ui/login.dart';
 import 'home.dart';
+import 'login.dart';
 
 class StackedLogo extends StatelessWidget {
   @override
@@ -69,16 +69,12 @@ class ForgotPassword extends StatelessWidget {
     );
   }
 }
-class containerWithSize extends StatelessWidget {
-  final double height;
-  final double width;
-  final String text ;
+class ContainerWithSize extends StatelessWidget {
+  double height;
+  double width;
+  String text ;
 
-  containerWithSize(
-  this.height,
-  this.width,
-  this.text
-  );
+  ContainerWithSize(this.height,this.width,this.text);
 
   @override
   Widget build(BuildContext context) {
