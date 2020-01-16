@@ -457,6 +457,7 @@ class Controller extends ControllerMVC {
   static String get displaySignInFacebookButton =>
       Model._signInWithFacebookButtonText;
 
+
   static String get displaySeparatorText =>
       Model._alternativeLogInSeparatorText;
 
@@ -468,6 +469,8 @@ class Controller extends ControllerMVC {
 
   static Future<bool> signInWithFacebook(context) =>
       Model._signInWithFacebook(context);
+  //static Future<bool> signInWithGoogle(context) =>
+      //Model._signInWithGoogle(context);
 
   static Future<bool> signInWithEmail(context, email, password) =>
       Model._signInWithEmail(context, email, password);
@@ -482,6 +485,11 @@ class Controller extends ControllerMVC {
       navigateToProfile(context);
     }
   }
+  /*static Future tryToLogInUserViaGoogle(context) async {
+    if (await signInWithGoogle(context) == true) {
+      navigateToProfile(context);
+    }
+  }*/
 
   static Future tryToLogInUserViaEmail(context, email, password) async {
     if (await signInWithEmail(context, email, password) == true) {
@@ -499,8 +507,8 @@ class Controller extends ControllerMVC {
 }
 
 class Model {
-  static String _logoTitle = "MOMENTUM";
-  static String _logoSubTitle = "GROWTH * HAPPENS * TODAY";
+  static String _logoTitle = "TIME-ZERO";
+  static String _logoSubTitle = "Save Your Time";
   static String _signInMenuButton = "SIGN IN";
   static String _signUpMenuButton = "SIGN UP";
   static String _hintTextEmail = "Email";
@@ -510,6 +518,7 @@ class Model {
   static String _signUpButtonText = "SIGN UP";
   static String _signInWithEmailButtonText = "Sign in with Email";
   static String _signInWithFacebookButtonText = "Sign in with Facebook";
+ // static String _signInWithGoogleButtonText = "Sign in with Google";
   static String _alternativeLogInSeparatorText = "or";
   static String _emailLogInFailed =
       "Email or Password was incorrect. Please try again";
