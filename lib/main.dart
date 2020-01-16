@@ -47,7 +47,8 @@ class MyApp extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.only(top: 40.0),
                   //Sets the main padding all widgets has to adhere to.
-                  child: LogInPage(),
+                  child:SingleChildScrollView(child: LogInPage(),),
+
                 ),
               )
           ),
