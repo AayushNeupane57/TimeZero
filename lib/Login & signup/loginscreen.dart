@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import'../utilities/constants.dart';
 import '../Inside app/home.dart';
+import'./EmailPassword.dart';
+import'./Signup.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:google_sign_in/google_sign_in.dart';
 
@@ -29,84 +31,7 @@ import '../Inside app/home.dart';
 
     bool _rememberMe = false;
 
-    Widget _buildEmailLTF(){
-       return Column(
-         crossAxisAlignment: CrossAxisAlignment.start,
-         children:<Widget>[
-           Text(
-             'Email',
-               style: kLabelStyle,
-           ),
-           SizedBox(height: 10.0,),
-           Container(
-             alignment: Alignment.centerLeft,
-             decoration: kBoxDecorationStyle,
-             height: 60.0,
-             child: TextField(
-               keyboardType: TextInputType.emailAddress,
-               style: TextStyle(
-                   color: Colors.white,
-               fontFamily: 'OpenSans'),
-               decoration: InputDecoration(
-                 border: InputBorder.none,
-                 contentPadding: EdgeInsets.only(top:14.0),
-                 prefixIcon: Icon(
-                   Icons.email,
-                   color: Colors.white,
-                 ),
-                 hintText :"Enter your Email Address",
-                 hintStyle: kHintTextStyle,
 
-               ),
-             ),
-
-           ),
-         ],
-       );
-     }
-
-
-
-
-
-    Widget _buildPasswordLTF(){
-       return     Column(
-     crossAxisAlignment: CrossAxisAlignment.start,
-     children:<Widget>[
-     Text(
-     'Password',
-      style: kLabelStyle,
-      ),
-      SizedBox(height: 10.0,),
-      Container(
-      alignment: Alignment.centerLeft,
-        decoration: kBoxDecorationStyle,
-      height: 60.0,
-      child: TextField(
-      obscureText: true,
-      style: TextStyle(
-      color: Colors.white,
-      fontFamily: 'Opensans',
-      ),
-      decoration: InputDecoration(
-      border: InputBorder.none,
-      contentPadding: EdgeInsets.only(top:14.0),
-      prefixIcon: Icon(
-      Icons.lock,
-      color: Colors.white,
-      ),
-      hintText :"Enter your Password",
-      hintStyle: kHintTextStyle,
-
-      ),
-      ),
-
-      ),
-      ],
-      );
-
-
-     }
 
 
      Widget _buildForgotPassword(){
@@ -192,25 +117,6 @@ import '../Inside app/home.dart';
 
 
 
- Widget _buildSignInWithText()
-{
-  return   Column(
-      children: <Widget> [
-        Text(
-          '-OR-',
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight:FontWeight.w400,
-
-          ),
-        ),
-        SizedBox(height: 20.0),
-        Text('Sign in with',style:kLabelStyle),
-
-      ]
-  );
-}
-
 Widget _buildSocialBtn(Function onTap, AssetImage facebook )
 {
   return GestureDetector(
@@ -237,33 +143,15 @@ Widget _buildSocialBtn(Function onTap, AssetImage facebook )
 }
 
 
-Widget _buildSocialBtnRow()
-{
-  return   Padding (
-    padding: EdgeInsets.symmetric(vertical :30.0),
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children:<Widget>[
-        _buildSocialBtn(
-              () => print("Login With Faceboook"),
-          AssetImage(
-              'assets/facebook.jpg'),),
-        _buildSocialBtn (
-              ()=> print("Login in with Google"),
-          AssetImage(
-              'assets/google.jpg'
-          ),
-        ),
-      ],
-    ),
-  );
-}
-
 Widget _buildSignUpBtn()
 {
   return
   GestureDetector(
-    onTap: () => print("sign up btn pressed"),
+    onTap: () => Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => SignUpScreen()),
+    ),
+      //print("sign up btn pressed"),
     child: RichText (
         text: TextSpan(
             children: [
@@ -340,14 +228,14 @@ Widget _buildSignUpBtn()
                       ),
                     ),
                     SizedBox(height: 30.0),
-                    _buildEmailLTF(),
+                    EmailPassword("email"),
                     SizedBox(height: 30.0),
-                    _buildPasswordLTF(),
+                    EmailPassword("password"),
                     _buildForgotPassword(),
                     _buildRememberMe(),
                     _buildLoginBtn(),
-                    _buildSignInWithText(),
-                    _buildSocialBtnRow(),
+                    EmailPassword("signinwithtext"),
+                    EmailPassword("socialbtnrow"),
                     _buildSignUpBtn(),
 
 
