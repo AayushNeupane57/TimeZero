@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'home2.dart';
-import 'login.dart';
+import 'home.dart';
+import '../login & signup./loginscreen.dart';
 import 'restaurant.dart';
 
 List<String> Catagories = ["All", "Popular", "Dessert", "Snack", "Fast Food"];
@@ -114,54 +114,54 @@ class SignUp extends StatelessWidget {
   }
 }
 
-class CustomInkwell extends StatelessWidget {
-
-  double height1,width1;
-  String s1;
-  BuildContext ctx;
-  @override
-  CustomInkwell({this.ctx,this.height1,this.width1,this.s1});
-  Widget build(BuildContext ctx) {
-    return  Container(
-        width: width1,
-        height: height1,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            gradient: LinearGradient(colors: [
-              Color(0xFF17ead9),
-              Color(0xFF6078ea),
-            ])),
-        child: Material(
-            color: Colors.transparent,
-            child: InkWell(
-              onTap: () {
-                if (s1 == "Sign In") {
-                  Navigator.push(
-                      ctx,
-                      MaterialPageRoute(
-                        builder: (context) => Home2(),
-                      ));
-                }
-                if (s1 == "Login") {
-                  Navigator.push(
-                      ctx,
-                      MaterialPageRoute(
-                        builder: (context) => Login(),
-                      ));
-                }
-              },
-              child: Center(
-                  child: Text(
-                    s1,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontFamily: "Poppins-Black",
-                    ),
-                  )),
-            )));
-  }
-}
+//class CustomInkwell extends StatelessWidget {
+//
+//  double height1,width1;
+//  String s1;
+//  BuildContext ctx;
+//  @override
+//  CustomInkwell({this.ctx,this.height1,this.width1,this.s1});
+//  Widget build(BuildContext ctx) {
+//    return  Container(
+//        width: width1,
+//        height: height1,
+//        decoration: BoxDecoration(
+//            borderRadius: BorderRadius.circular(20),
+//            gradient: LinearGradient(colors: [
+//              Color(0xFF17ead9),
+//              Color(0xFF6078ea),
+//            ])),
+//        child: Material(
+//            color: Colors.transparent,
+//            child: InkWell(
+//              onTap: () {
+//                if (s1 == "Sign In") {
+//                  Navigator.push(
+//                      ctx,
+//                      MaterialPageRoute(
+//                        builder: (context) => Home2(),
+//                      ));
+//                }
+//                if (s1 == "Login") {
+//                  Navigator.push(
+//                      ctx,
+//                      MaterialPageRoute(
+//                        builder: (context) => Login(),
+//                      ));
+//                }
+//              },
+//              child: Center(
+//                  child: Text(
+//                    s1,
+//                    style: TextStyle(
+//                      color: Colors.white,
+//                      fontSize: 30,
+//                      fontFamily: "Poppins-Black",
+//                    ),
+//                  )),
+//            )));
+//  }
+//}
 
 
 class ItemCard extends StatelessWidget {

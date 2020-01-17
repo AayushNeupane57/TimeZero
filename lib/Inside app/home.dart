@@ -1,6 +1,6 @@
 import 'dart:ui';
 import "package:flutter/material.dart";
-import 'package:timezero196/components.dart';
+import 'components.dart';
 
 List<String>restaurantNames = ["KFC", "BurgerHouse", "CFC", "Annapurna", "Solti Crown"];
 List<String>restaurantDistance = ["1", "2", "3", "4", "5"];

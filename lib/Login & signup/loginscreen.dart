@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import'../utilities/constants.dart';
+import '../Inside app/home.dart';
 //import 'package:firebase_auth/firebase_auth.dart';
 //import 'package:google_sign_in/google_sign_in.dart';
 
@@ -33,12 +35,12 @@ import 'package:flutter/services.dart';
          children:<Widget>[
            Text(
              'Email',
-//                      style: kLabelStyle:
+               style: kLabelStyle,
            ),
            SizedBox(height: 10.0,),
            Container(
              alignment: Alignment.centerLeft,
-//                        decoration: kBoxDecorationStyle,
+             decoration: kBoxDecorationStyle,
              height: 60.0,
              child: TextField(
                keyboardType: TextInputType.emailAddress,
@@ -53,6 +55,7 @@ import 'package:flutter/services.dart';
                    color: Colors.white,
                  ),
                  hintText :"Enter your Email Address",
+                 hintStyle: kHintTextStyle,
 
                ),
              ),
@@ -72,12 +75,12 @@ import 'package:flutter/services.dart';
      children:<Widget>[
      Text(
      'Password',
-//      style: kLabelStyle:
+      style: kLabelStyle,
       ),
       SizedBox(height: 10.0,),
       Container(
       alignment: Alignment.centerLeft,
-//                        decoration: kBoxDecorationStyle,
+        decoration: kBoxDecorationStyle,
       height: 60.0,
       child: TextField(
       obscureText: true,
@@ -93,7 +96,7 @@ import 'package:flutter/services.dart';
       color: Colors.white,
       ),
       hintText :"Enter your Password",
-//      hintStyle: kHintStyle,
+      hintStyle: kHintTextStyle,
 
       ),
       ),
@@ -114,7 +117,7 @@ import 'package:flutter/services.dart';
               padding : EdgeInsets.only(right: 0.0),
               child: Text(
                 'Forgot Password?',
-//                        style: kLabelStyle,
+                        style: kLabelStyle,
               )
           )
       );
@@ -143,7 +146,7 @@ import 'package:flutter/services.dart';
              ),
              Text(
                "Remember me",
-//             style:kLabelStyle,
+             style:kLabelStyle,
              )
            ],
          ),
@@ -160,7 +163,10 @@ import 'package:flutter/services.dart';
          width: double.infinity,
          child : RaisedButton(
              elevation:5.0,
-             onPressed: () => print("Login button presses"),
+             onPressed: () => Navigator.push(
+               context,
+               MaterialPageRoute(builder: (context) => Home2()),
+             ),         //print("Login button presses"),
              padding : EdgeInsets.all(15.0),
              shape : RoundedRectangleBorder(
                borderRadius: BorderRadius.circular(30.0),
@@ -199,7 +205,7 @@ import 'package:flutter/services.dart';
           ),
         ),
         SizedBox(height: 20.0),
-        Text('Sign in with',)// style:kLabelStyle),
+        Text('Sign in with',style:kLabelStyle),
 
       ]
   );
@@ -304,7 +310,7 @@ Widget _buildSignUpBtn()
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
                         colors: [
-                          Color(0xFFE63462),
+                          Color(0xFFC89309),
 //                  Color(0xFFE63462),
 //                  Color(0xFFE63462),
 //                  Color(0xFFE63462),
