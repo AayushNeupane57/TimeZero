@@ -108,7 +108,7 @@ Widget _buildPasswordLTF(){
             BoxShadow(
               color: Colors.black26,
               offset: Offset(0,2),
-              blurRadius: 6.0,
+              blurRadius: 50.0,
             ),
           ],
           image: DecorationImage(
@@ -131,11 +131,11 @@ Widget _buildSocialBtnRow()
           _buildSocialBtn(
                 () => print("Login With Faceboook"),
             AssetImage(
-                'assets/facebook.jpg'),),
+                'assets/facebook.png'),),
           _buildSocialBtn (
                 ()=> print("Login in with Google"),
             AssetImage(
-                'assets/google.jpg'
+                'assets/google.png'
             ),
           ),
         ],

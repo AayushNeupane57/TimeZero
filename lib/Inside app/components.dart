@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
-import '../login & signup./loginscreen.dart';
+
 import 'restaurant.dart';
 
 List<String> Catagories = ["All", "Popular", "Dessert", "Snack", "Fast Food"];

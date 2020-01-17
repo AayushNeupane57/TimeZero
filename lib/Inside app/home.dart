@@ -1,6 +1,7 @@
 import 'dart:ui';
 import "package:flutter/material.dart";
 import 'components.dart';
+import 'profile.dart';
 
 List<String>restaurantNames = ["KFC", "BurgerHouse", "CFC", "Annapurna", "Solti Crown"];
 List<String>restaurantDistance = ["1", "2", "3", "4", "5"];
@@ -78,7 +79,12 @@ class Home2 extends StatelessWidget {
               ),
               IconButton(
                 icon: Icon(Icons.person),
-                onPressed: () {},
+                onPressed: () { Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Profile()),
+                );
+
+                },
               ),
             ],
           ),
