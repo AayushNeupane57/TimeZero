@@ -33,9 +33,9 @@ class Profile extends StatelessWidget {
           ),
               SizedBox(height: 30),
             Column(
-             children:<Widget> [Image.asset("assets/Profile.jpg",
-
-            height: 100,
+             children:<Widget> [
+               Image.asset("assets/Profile.jpg",
+                 height: 100,
             width : 100,
           ),
              ]
