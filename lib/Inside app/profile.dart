@@ -216,7 +216,7 @@ class Profile extends StatelessWidget {
                                           SizedBox(height:25),
                                           Row(children: <Widget>
                                           [
-                                            Icon(Icons.,
+                                            Icon(Icons.add,
                                                 color: Colors.black,
                                                 size: 35),
                                             SizedBox(width: 20),
@@ -230,11 +230,11 @@ class Profile extends StatelessWidget {
                                           ]),
                                           Row(children: <Widget>
                                           [
-                                            Icon(Icons.settings,
+                                            Icon(Icons.calendar_today,
                                                 color: Colors.black,
                                                 size: 35),
                                             SizedBox(width: 20),
-                                            Text("Settings", style:
+                                            Text("My Bookings", style:
                                             TextStyle(
                                               color: Colors.black,
                                               fontWeight: FontWeight.w700,
