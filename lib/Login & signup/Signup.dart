@@ -65,7 +65,7 @@ Widget _buildSignUpBtn()
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [
-                      Color(0xFFC89309),
+                      Color(0xFFD31E15),
 //                  Color(0xFFE63462),
 //                  Color(0xFFE63462),
 //                  Color(0xFFE63462),

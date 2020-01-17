@@ -39,7 +39,7 @@ class Profile extends StatelessWidget {
                               .of(context)
                               .size
                               .height),
-                          color: Colors.white,
+                          color: Color(0xFFD31E15),
                           child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -210,7 +210,7 @@ class Profile extends StatelessWidget {
                                 SizedBox(height: 16,),
                                 Container(
                                     padding: EdgeInsets.all(32),
-                                    color: Colors.brown,
+                                    color: Color(0xFFe86427),
                                     child: Column(
                                         children: <Widget>[
                                           SizedBox(height:25),
@@ -228,6 +228,7 @@ class Profile extends StatelessWidget {
 
                                             ))
                                           ]),
+                                          SizedBox(height:25),
                                           Row(children: <Widget>
                                           [
                                             Icon(Icons.calendar_today,
@@ -235,6 +236,21 @@ class Profile extends StatelessWidget {
                                                 size: 35),
                                             SizedBox(width: 20),
                                             Text("My Bookings", style:
+                                            TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w700,
+                                              fontSize: 30,
+
+                                            ))
+                                          ]),
+                                          SizedBox(height:25),
+                                          Row(children: <Widget>
+                                          [
+                                            Icon(Icons.settings,
+                                                color: Colors.black,
+                                                size: 35),
+                                            SizedBox(width: 20),
+                                            Text("Settings", style:
                                             TextStyle(
                                               color: Colors.black,
                                               fontWeight: FontWeight.w700,
