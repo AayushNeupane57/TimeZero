@@ -27,7 +27,7 @@ String text(String txt)
         alignment: Alignment.centerLeft,
         decoration: kBoxDecorationStyle,
         height: 60.0,
-        child: TextField(
+        child: TextFormField(
           keyboardType: TextInputType.emailAddress,
           style: TextStyle(
               color: Colors.white,
@@ -43,6 +43,10 @@ String text(String txt)
             hintStyle: kHintTextStyle,
 
           ),
+          onSaved:(String value){
+            print("value entered");
+
+          },
         ),
 
       ),
@@ -67,7 +71,7 @@ Widget _buildPasswordLTF(){
         alignment: Alignment.centerLeft,
         decoration: kBoxDecorationStyle,
         height: 60.0,
-        child: TextField(
+        child: TextFormField(
           obscureText: true,
           style: TextStyle(
             color: Colors.white,

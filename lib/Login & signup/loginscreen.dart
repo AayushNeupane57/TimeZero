@@ -34,7 +34,162 @@ import'./Signup.dart';
 
 
 
-     Widget _buildForgotPassword(){
+
+
+    Widget _buildEmailLTF(){
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children:<Widget>[
+          Text(
+            'Email',
+            style: kLabelStyle,
+          ),
+          SizedBox(height: 10.0,),
+          Container(
+            alignment: Alignment.centerLeft,
+            decoration: kBoxDecorationStyle,
+            height: 60.0,
+            child: TextFormField(
+              keyboardType: TextInputType.emailAddress,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontFamily: 'OpenSans'),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(top:14.0),
+                prefixIcon: Icon(
+                  Icons.email,
+                  color: Colors.white,
+                ),
+                hintText :"Enter your Email Address",
+                hintStyle: kHintTextStyle,
+
+              ),
+              onSaved:(String value){
+                print("value entered");
+
+              },
+            ),
+
+          ),
+        ],
+      );
+    }
+
+
+
+
+
+    Widget _buildPasswordLTF(){
+      return     Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children:<Widget>[
+          Text(
+            'Password',
+            style: kLabelStyle,
+          ),
+          SizedBox(height: 10.0,),
+          Container(
+            alignment: Alignment.centerLeft,
+            decoration: kBoxDecorationStyle,
+            height: 60.0,
+            child: TextFormField(
+              obscureText: true,
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Opensans',
+              ),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(top:14.0),
+                prefixIcon: Icon(
+                  Icons.lock,
+                  color: Colors.white,
+                ),
+                hintText :"Enter your Password",
+                hintStyle: kHintTextStyle,
+
+              ),
+            ),
+
+          ),
+        ],
+      );
+
+
+    }
+
+
+    Widget _buildSocialBtn(Function onTap, AssetImage facebook )
+    {
+      return GestureDetector(
+        onTap: onTap,
+        child: Container(
+          height: 60.0,
+          width : 60.0,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black26,
+                offset: Offset(0,2),
+                blurRadius: 50.0,
+              ),
+            ],
+            image: DecorationImage(
+              image: facebook,
+            ),
+          ),
+        ),
+      );
+    }
+
+
+
+    Widget _buildSocialBtnRow()
+    {
+      return   Padding (
+        padding: EdgeInsets.symmetric(vertical :30.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children:<Widget>[
+            _buildSocialBtn(
+                  () => print("Login With Faceboook"),
+              AssetImage(
+                  'assets/facebook.png'),),
+            _buildSocialBtn (
+                  ()=> print("Login in with Google"),
+              AssetImage(
+                  'assets/google.png'
+              ),
+            ),
+          ],
+        ),
+      );
+    }
+
+    Widget _buildSignInWithText()
+    {
+      return   Column(
+          children: <Widget> [
+            Text(
+              '-OR-',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight:FontWeight.w400,
+
+              ),
+            ),
+            SizedBox(height: 20.0),
+            Text("Sign in with",style:kLabelStyle),
+
+          ]
+      );
+    }
+
+
+    Widget _buildForgotPassword(){
       return Container(
           alignment :Alignment.centerRight,
           child: FlatButton(
@@ -190,7 +345,7 @@ Widget _buildSignUpBtn()
                   horizontal: 40.0,
                   vertical: 120.0,
                 ),
-                child: Column(
+                child: Form( child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Text(
@@ -203,18 +358,16 @@ Widget _buildSignUpBtn()
                       ),
                     ),
                     SizedBox(height: 30.0),
-                    EmailPassword("email"),
+                    _buildEmailLTF(),
                     SizedBox(height: 30.0),
-                    EmailPassword("password"),
+                    _buildPasswordLTF(),
                     _buildForgotPassword(),
                     _buildRememberMe(),
                     _buildLoginBtn(),
-                    EmailPassword("signinwithtext"),
-                    EmailPassword("socialbtnrow"),
-                    _buildSignUpBtn(),
-
-
+                    _buildSignInWithText(),
+                    _buildSocialBtnRow(),
                   ],
+                ),
                 ),
               ),
             ),
