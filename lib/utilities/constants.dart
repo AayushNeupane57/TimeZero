@@ -10,6 +10,12 @@ final kLabelStyle = TextStyle(
   fontWeight: FontWeight.bold,
   fontFamily: 'OpenSans',
 );
+final pLabelStyle = TextStyle(
+  color: Colors.black,
+  fontWeight: FontWeight.bold,
+  fontSize: 20,
+//  fontFamily: 'OpenSans',
+);
 
 final kBoxDecorationStyle = BoxDecoration(
   color: Color(0XFFDE8E44),
