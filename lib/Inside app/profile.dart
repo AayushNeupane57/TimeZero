@@ -254,11 +254,11 @@ class Profile extends StatelessWidget {
                                           Card(
                                               elevation:10,//                           <-- Card widget
                                               child: ListTile(
-                                                leading: Icon(Icons.calendar_today,
+                                                leading: Icon(Icons.add,
                                                     color: Colors.black,
                                                     size: 30),
                                                 title: Text(
-                                                  'My Bookings',
+                                                  'Invite & earn',
                                                   style: TextStyle(
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.bold,
@@ -270,11 +270,11 @@ class Profile extends StatelessWidget {
                                           Card(
                                               elevation:10,//                           <-- Card widget
                                               child: ListTile(
-                                                leading: Icon(Icons.calendar_today,
+                                                leading: Icon(Icons.settings,
                                                     color: Colors.black,
                                                     size: 30),
                                                 title: Text(
-                                                  'My Bookings',
+                                                  'Settings',
                                                   style: TextStyle(
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.bold,
@@ -288,11 +288,11 @@ class Profile extends StatelessWidget {
                                           Card(
                                               elevation:10,//                           <-- Card widget
                                               child: ListTile(
-                                                leading: Icon(Icons.calendar_today,
+                                                leading: Icon(Icons.info,
                                                     color: Colors.black,
                                                     size: 30),
                                                 title: Text(
-                                                  'My Bookings',
+                                                  'About Us',
                                                   style: TextStyle(
                                                     color: Colors.black,
                                                     fontWeight: FontWeight.bold,
@@ -301,8 +301,43 @@ class Profile extends StatelessWidget {
                                                 trailing:Icon(Icons.expand_more),
                                               )),
                                           SizedBox(height:25),
-                                        ]
-                                    )
+                                           Card(
+                                      elevation:10,//                           <-- Card widget
+                                      child: ListTile(
+                                        leading: Icon(Icons.help,
+                                            color: Colors.black,
+                                            size: 30),
+                                        title: Text(
+                                          'Help & support',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20,
+                                          ),),
+                                        trailing:Icon(Icons.expand_more),
+                                      )),
+                                           SizedBox(height:25),
+                                         Card(
+                                      elevation:10,//                           <-- Card widget
+                                      child: ListTile(
+                                        leading: Icon(Icons.exit_to_app,
+                                            color: Colors.black,
+                                            size: 30),
+                                        title: Text(
+                                          'Log out',
+                                          style: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 20,
+                                          ),),
+                                        trailing:Icon(Icons.expand_more),
+                                      )),
+                                           SizedBox(height:25),
+
+
+
+
+                                    ])
                                 ),
 
 
