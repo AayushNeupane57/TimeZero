@@ -36,7 +36,9 @@ class Profile extends StatelessWidget {
             ),
             DraggableScrollableSheet(
                 minChildSize: 0.1,
-                initialChildSize: 0.22,
+                initialChildSize: 0.5,
+
+
                 builder: (context, scrollController) {
                   return SingleChildScrollView(
                       controller: scrollController,
@@ -215,7 +217,11 @@ class Profile extends StatelessWidget {
 
                                 ),
                                 SizedBox(height: 16,),
-                                Container(
+
+
+                               Container(
+                                      height: 400,
+
                                     padding: EdgeInsets.all(32),
                                     decoration: new BoxDecoration(
                                       boxShadow: [
@@ -231,8 +237,13 @@ class Profile extends StatelessWidget {
                                       ],
 
                                     ),
+
+                                        child: SingleChildScrollView(
                                     child: Column(
                                         children: <Widget>[
+
+
+
 
 
                                           Card(
@@ -283,8 +294,6 @@ class Profile extends StatelessWidget {
                                                 trailing:Icon(Icons.expand_more),
                                               )),
                                           SizedBox(height:25),
-
-
                                           Card(
                                               elevation:10,//                           <-- Card widget
                                               child: ListTile(
@@ -301,7 +310,7 @@ class Profile extends StatelessWidget {
                                                 trailing:Icon(Icons.expand_more),
                                               )),
                                           SizedBox(height:25),
-                                           Card(
+                                          Card(
                                       elevation:10,//                           <-- Card widget
                                       child: ListTile(
                                         leading: Icon(Icons.help,
@@ -316,8 +325,8 @@ class Profile extends StatelessWidget {
                                           ),),
                                         trailing:Icon(Icons.expand_more),
                                       )),
-                                           SizedBox(height:25),
-                                         Card(
+                                          SizedBox(height:25),
+                                          Card(
                                       elevation:10,//                           <-- Card widget
                                       child: ListTile(
                                         leading: Icon(Icons.exit_to_app,
@@ -332,12 +341,15 @@ class Profile extends StatelessWidget {
                                           ),),
                                         trailing:Icon(Icons.expand_more),
                                       )),
-                                           SizedBox(height:25),
+
+
+
 
 
 
 
                                     ])
+                                )
                                 ),
 
 
