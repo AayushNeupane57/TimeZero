@@ -36,7 +36,7 @@ class Profile extends StatelessWidget {
             ),
             DraggableScrollableSheet(
                 minChildSize: 0.1,
-                initialChildSize: 0.5,
+                initialChildSize: 0.9,
 
 
                 builder: (context, scrollController) {
