@@ -11,7 +11,7 @@ class Ordering extends StatefulWidget {
 
 class _Ordering extends State<Ordering> {
 
-  List<String> visitedHotels = ["KFC", "KKFC", "CFC", "Bota", "Burger house",];
+  List<String> visitedHotels = ["KFC", "KKFC", "CFC", "Bota", "Burger house"];
   List<String>  dateVisited =["2014-04-02", "2016-12-14" ]; // need to convert the string into date.
 
 
