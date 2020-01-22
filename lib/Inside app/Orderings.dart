@@ -1,144 +1,39 @@
 
 import "package:flutter/material.dart";
+import 'dart:async';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class BookedDetails{
   String image;
   String name;
-  String date;
-  String wTime;
-  String oTime;
+  DateTime orderDateTime; // time at which order is made
+  DateTime finalDateTime; // time the customer is supposed to get the food served
   String address;
-  BookedDetails(this.image,this.name,this.date,this.wTime,this.oTime,this.address);
+  String item;
+  BookedDetails(this.image,this.name,this.orderDateTime,this.finalDateTime,this.address,this.item);
 }
 int count = 1;
 List <BookedDetails> bookedDetails =
-[BookedDetails("images/syanko.png","Syanko","2019/04/16","00:20:00", "01:02:30","Thapathali"),];
+[BookedDetails("images/syanko.png","Syanko",DateTime.parse("2020-01-22 13:47:39.106637"), DateTime.parse("2020-01-22 14:11:39.106637"),"Thapathali","Burger"),];
 
 
-
-
-Widget bookedItems()
-{
-if (count == bookedDetails.length)
-  {return Container(
-
-          color: Colors.white,
-          child: Column(
-            children: <Widget>[
-              Container(
-                height:50,
-                child: Row(
-                  children: <Widget>[
-                    Text("Kathmandu",
-                        style: TextStyle(
-                          fontSize: 18,
-                        )),
-                    Spacer(),
-                    Text('count down',),
-
-                  ],
-                ),
-
-              ),
-              Container(
-                height: 2,
-                color: Colors.grey,
-              ),
-              Container(
-                  height:150,
-                  color: Colors.white,
-                  child:
-                  Row(
-                    children: <Widget>[
-                      ClipOval(
-                        child: Image.asset(
-                          'images/Momo.jpg',
-                          fit: BoxFit.cover,),
-                      ),
-                      SizedBox(width:50),
-                      Column(
-                        children:<Widget>[
-                          Text(bookedDetails[0].name+", " ,
-                            style: TextStyle(
-                              fontSize: 18,),),
-                          Text(bookedDetails[0].address,
-                            style: TextStyle(
-                              fontSize: 18,),),
-
-                          Text("Ordering date/time"),
-                          Text(bookedDetails[0].date,
-                              style: TextStyle(
-                                fontSize: 18,)),
-                          Text(bookedDetails[0].oTime,
-                              style: TextStyle(
-                                fontSize: 18,))
-                        ],
-
-
-                      ),
-
-
-
-
-                    ],
-                  )
-
-              ),
-
-
-              //container to colour the space
-              Container(
-                height: 2,
-                color: Colors.grey,
-              ),
-
-
-              Container(
-                  color: Colors.white,
-                  child: Row(
-                    children: <Widget>[
-                      RaisedButton(
-                        elevation:5.0,
-                        onPressed: (){
-                          print("call button prrssed");
-                          print(bookedDetails[0].name);
-                        },
-                        child:Text("CALL at hotel"),),
-                      Spacer(),
-                      RaisedButton(
-                        elevation:5.0,
-                        onPressed: (){
-                          print("cancelled button pressed");
-                        },
-                        child: Text("CANCEL"),),
-
-                    ],
-                  )
-
-              )
-
-
-            ],
-          )
-      );}
-else if(count < bookedDetails.length)
-  {
-    count++;
-    return bookedItems();
+class Order extends StatefulWidget{
+@override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _Order();
   }
 }
 
 
-
-
-class Order extends StatelessWidget {
+class _Order extends State<Order> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
         length: 3,
         child: Scaffold(
-            backgroundColor: Colors.grey,
+            backgroundColor: Colors.grey[100],
             appBar: AppBar(
                 backgroundColor: Colors.redAccent,
                 centerTitle: true,
@@ -176,10 +71,34 @@ class Order extends StatelessWidget {
                                 children: <Widget>[
                                   Text("Kathmandu",
                                   style: TextStyle(
-                                    fontSize: 18,
+                                    fontSize: 12,
                                   )),
                                   Spacer(),
-                                  Text('count down',),
+
+                                  Text((bookedDetails[0].finalDateTime.difference(DateTime.now())).toString(),
+
+                                      style: TextStyle(
+                                        fontSize: 12,
+                                      )
+                                  ),
+                                  RaisedButton(
+
+                                    onPressed: ()
+                                    {
+                                      setState(() {
+                                        DateTime date = DateTime.now();
+                                        String time = "${date.hour}:${date.minute}:${date.second}";
+                                        print(DateTime.now());
+                                        print(bookedDetails[0].finalDateTime);
+                                        print(time);
+                                        Text("aa");
+                                      });
+                                    },
+                                    child: Text("see remaining time "),)
+
+
+
+
 
                                 ],
                               ),
@@ -189,46 +108,64 @@ class Order extends StatelessWidget {
                               height: 2,
                               color: Colors.grey,
                             ),
-                            Container(
-                              height:150,
-                                color: Colors.white,
-                                child:
-                                Row(
-                                  children: <Widget>[
-                                     ClipOval(
-                                      child: Image.asset(
-                                        'images/Momo.jpg',
-                                        fit: BoxFit.cover,),
-                                    ),
-                                    SizedBox(width:50),
-                                    Column(
-                                      children:<Widget>[
-                                        Text(bookedDetails[0].name+", " ,
-                                          style: TextStyle(
-                                            fontSize: 18,),),
-                                        Text(bookedDetails[0].address,
-                                          style: TextStyle(
-                                            fontSize: 18,),),
 
-                                        Text("Ordered date/time"),
-                                        Text(bookedDetails[0].date,
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+
+                              child:
+                              Container(
+                                  height:200,
+                                  color: Colors.white,
+                                  child:
+                                  Row(
+                                    children: <Widget>[
+                                      ClipOval(
+                                        child: Image.asset(
+                                          'images/Momo.jpg',
+                                          width: 200,
+                                          fit: BoxFit.cover,),
+                                      ),
+                                      SizedBox(width:45),
+                                      Column(
+                                        children:<Widget>[
+                                          Text(bookedDetails[0].name+", " ,
                                             style: TextStyle(
-                                              fontSize: 18,)),
-                                        Text(bookedDetails[0].oTime,
+                                              fontSize: 12,),),
+                                          Text(bookedDetails[0].address,
                                             style: TextStyle(
-                                              fontSize: 18,))
-                                      ],
+                                              fontSize: 12,),),
+
+                                          Text("Ordered date/time"),
+                                          Text("${bookedDetails[0].orderDateTime.year}/${bookedDetails[0].orderDateTime.month}/${bookedDetails[0].orderDateTime.day}",
+                                              style: TextStyle(
+                                                fontSize: 12,)),
+                                          Text("${bookedDetails[0].orderDateTime.hour}:${bookedDetails[0].orderDateTime.minute}:${bookedDetails[0].orderDateTime.second}",
+                                              style: TextStyle(
+                                                fontSize: 12,)),
+                                          Text("Final time:"),
+                                          Text("${bookedDetails[0].finalDateTime.hour}:${bookedDetails[0].finalDateTime.minute}:${bookedDetails[0].finalDateTime.second}",
+                                              style: TextStyle(
+                                                fontSize: 12,)),
+                                          Text("Ordered Items:",
+                                              style: TextStyle(
+                                                fontSize: 12,)),
+                                          Text(bookedDetails[0].item,
+                                              style: TextStyle(
+                                                fontSize: 12,))
+                                        ],
 
 
-                                    ),
+                                      ),
 
 
 
 
-                                  ],
-                                )
+                                    ],
+                                  )
 
+                              ),
                             ),
+
 
 
                                    //container to colour the space
@@ -242,20 +179,51 @@ class Order extends StatelessWidget {
                                 color: Colors.white,
                                 child: Row(
                                   children: <Widget>[
-                                    RaisedButton(
-                                        elevation:5.0,
-                                        onPressed: (){
-                                          print("call button prrssed");
-                                          print(bookedDetails[0].name);
-                                        },
-                                        child:Text("CALL at hotel"),),
+                                    Column(
+                                      children:<Widget>[
+                                        IconButton(
+                                          icon: Icon(Icons.call,
+                                          color: Colors.green,),
+                                          onPressed: () {
+                                            print("call buttonn  pressed");
+                                            launch("tel:+9779867353344");
+                                          },
+                                        ),
+                                          GestureDetector(
+                                              child:
+                                              Text("Cancel Order",
+                                                  style: TextStyle(
+                                                      fontSize: 14)),
+                                              onTap:(){
+                                                print("CALL button  pressed");
+                                                launch("tel:+9779867353344");
+                                              }
+                                          ),
+                                      ]
+                                    ),
                                     Spacer(),
-                                    RaisedButton(
-                                        elevation:5.0,
-                                        onPressed: (){
-                                          print("cancelled button pressed");
-                                        },
-                                        child: Text("CANCEL"),),
+                                    Column(
+                                        children:<Widget>[
+                                          IconButton(
+                                            icon: Icon(Icons.cancel,
+                                            color:Colors.red),
+                                            onPressed: () {
+                                              print("cancel button  pressed");
+                                            },
+                                          ),
+                                          GestureDetector(
+                                            child:
+                                            Text("Cancel Order",
+                                                style: TextStyle(
+                                                    fontSize: 14)),
+                                            onTap:(){
+                                            print("cancel button  pressed");
+                                            }
+                                          ),
+
+                                        ]
+                                    ),
+
 
                                   ],
                                 )
@@ -274,6 +242,7 @@ class Order extends StatelessWidget {
 
                   ],
                 ),
+
 
 
 
