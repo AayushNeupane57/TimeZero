@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "718809299436-l5usp4lits4rs6sjpdhami355572t4i9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "timezero.com.timezero",
+            "certificate_hash": "23ac74ceb2e401bc08aa07e152388e1cf5d45b63"
+          }
+        },
+        {
           "client_id": "718809299436-m56e6hbt951iu9j4r5lld1rkfvvura4i.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

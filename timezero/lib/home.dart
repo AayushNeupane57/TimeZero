@@ -2,7 +2,7 @@ import 'dart:ui';
 import 'package:firebase_auth/firebase_auth.dart';
 import "package:flutter/material.dart";
 import 'components.dart';
-import 'hotels.dart';
+import 'database.dart';
 
 //in fact these data should be obtained from database
 List<Hotel>restaurantNames = [kfc,dwarika,syanko,soltae,BurgerHouse];

@@ -76,44 +76,51 @@ class _SignInUPState extends State<SignInUP> {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25.0),
       width: double.infinity,
-      child: RaisedButton(
+      child:RaisedButton(
           elevation: 5.0,
-          onPressed: () async {
-            if(isSignIn)
-              {
-                AuthResult result = await auth.signIn(email, password);
-                if( result!=null){
-                  FirebaseUser user = await auth.currentuser();
-                  print("${user.displayName} has signed in");
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Home()),
-                  );
-                }
-                else
-                {
-                  print("unsucessful");
-                }
-              }
-            else
-            {
-              AuthResult result = await auth.signUp(email, password);
-              if( result !=null){
-                FirebaseUser user = await auth.currentuser();
-                print("${user.email} has signed up");
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => Home()),
-                );
-              }
-              else
-              {
-                print("unsucessful");
-              }
-            }
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => MyHome()),
+            );
 
-          }, //print("Login button presses"),
-          padding: EdgeInsets.all(15.0),
+          }
+//          onPressed: () async {
+//            if(isSignIn)
+//              {
+//                AuthResult result = await auth.signIn(email, password);
+//                if( result!=null){
+//                  FirebaseUser user = await auth.currentuser();
+//                  print("${user.displayName} has signed in");
+//                  Navigator.push(
+//                    context,
+//                    MaterialPageRoute(builder: (context) => Home()),
+//                  );
+//                }
+//                else
+//                {
+//                  print("unsucessful");
+//                }
+//              }
+//            else
+//            {
+//              AuthResult result = await auth.signUp(email, password);
+//              if( result !=null){
+//                FirebaseUser user = await auth.currentuser();
+//                print("${user.email} has signed up");
+//                Navigator.push(
+//                  context,
+//                  MaterialPageRoute(builder: (context) => Home()),
+//                );
+//              }
+//              else
+//              {
+//                print("unsucessful");
+//              }
+//            }
+//
+//          }, //print("Login button presses"),
+          ,padding: EdgeInsets.all(15.0),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30.0),
           ),
@@ -127,6 +134,7 @@ class _SignInUPState extends State<SignInUP> {
                 fontFamily: 'OpenSans',
               ))),
     );
+    
   }
 
   Widget _buildSignUpBtn() {
@@ -188,7 +196,7 @@ class _SignInUPState extends State<SignInUP> {
                   ),
                   SizedBox(height: 30.0),
                   //EmailOrPwFields is an custom class which extends stateless widgets and is defined below
-                  EmailField(fieldName:"Email", hintText:"Enter Your EmailvAddress"),
+                  EmailField(fieldName:"Email", hintText:"Enter Your Email Address"),
                   SizedBox(height: 30.0),
                   PasswordField(fieldName:"Password", hintText:"Enter Your Password"),
 
@@ -382,13 +390,13 @@ class PasswordField extends StatelessWidget {
           decoration: kBoxDecorationStyle,
           height: 60.0,
           child: TextField(
-            keyboardType: TextInputType.emailAddress,
+            obscureText: true,
             style: TextStyle(color: Colors.white, fontFamily: 'OpenSans'),
             decoration: InputDecoration(
               border: InputBorder.none,
               contentPadding: EdgeInsets.only(top: 14.0),
               prefixIcon: Icon(
-                Icons.email,
+                Icons.lock,
                 color: Colors.white,
               ),
               hintText: hintText,
@@ -401,4 +409,3 @@ class PasswordField extends StatelessWidget {
         ),],);
   }
 }
-

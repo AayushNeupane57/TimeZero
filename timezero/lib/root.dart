@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:timezero/components.dart';
+import 'foodCart.dart';
 import 'package:timezero/notifications.dart';
 import 'package:timezero/profile.dart';
 import 'home.dart';
-import 'hotels.dart';
+import 'database.dart';
 import'Orderings.dart';
 void main() {
   runApp(MaterialApp(

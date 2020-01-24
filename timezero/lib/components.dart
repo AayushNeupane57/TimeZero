@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:timezero/database.dart';
+import 'Orderings.dart';
+import 'hotels.dart';
 import 'restaurant.dart';
 import 'hotels.dart';
 
@@ -487,16 +490,11 @@ class _OrderScreenState extends State<OrderScreen> {
                       ],
                     ),
 
-
-
-
-
-
-
                     Spacer(),
 
                     InkWell(
                       onTap: () {
+
                       },
                       child: Container(
                         padding: EdgeInsets.all(15),
@@ -541,6 +539,7 @@ class _OrderScreenState extends State<OrderScreen> {
 class FoodCart extends StatefulWidget {
   List <Items> foodCart;
   FoodCart();
+  //this .add is a nave i gave it  to for a sake of fuctionality like overloaded constructor
   FoodCart.add({this.foodCart});
 
   @override
@@ -552,12 +551,16 @@ class _FoodCartState extends State<FoodCart> {
   Widget cartItem(int index)
   {
     return GestureDetector(
-      onTap: () {
-//        Navigator.push(
-//            context,
-//            MaterialPageRoute(
-//              builder: (context) => ShowItemDetail(foodItem: h1),
-//            ));
+      onTap: (){
+        print("<<<<<<<<<<<");
+        bookedDetails.add(BookedDetails(
+          item: foodCartData[index],
+          hotel: Hotel(name:"Soltae",rating: 5, image:"images/soltae.jpg", foodItems:foodsSoltae),
+          orderedTime: DateTime.now(),
+          durationSelected:Duration(hours: 1),
+
+
+        ));
       },
 
       child: Container(
@@ -583,8 +586,9 @@ class _FoodCartState extends State<FoodCart> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Expanded(
+              flex: 5,
               child: ClipOval(
-                child: Image.asset("images/cart.png"),
+                child: Image.asset("images/cart.jpg"),
               ),
             ),
             SizedBox(
@@ -670,21 +674,14 @@ class _FoodCartState extends State<FoodCart> {
             ),
             elevation: 0.0,
           ),
-          body: GestureDetector(
-            onTap: (){},
-            child: Container(
-                padding: EdgeInsets.all(10),
-                child: ListView.builder(
-                    itemCount: foodCartData.length,
-                    scrollDirection: Axis.vertical,
-                    itemBuilder: (context, index) {
-                      return Dismissible(
-                          key: Key(foodCartData[index].itemName),
-                          onDismissed: (direction){setState(() {
-                            foodCartData.removeAt(index);});},
-                          child:cartItem(index));
-                    })),
-          ),
+          body: Container(
+              padding: EdgeInsets.all(10),
+              child: ListView.builder(
+                  itemCount: foodCartData.length,
+                  scrollDirection: Axis.vertical,
+                  itemBuilder: (context, index) {
+                    return cartItem(index);
+                  })),
         );
       }
       }

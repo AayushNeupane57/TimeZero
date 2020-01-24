@@ -33,6 +33,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   get_it: ^1.0.3+2
   url_launcher: ^5.0.3
+  google_maps_flutter:
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +57,11 @@ flutter:
   assets:
     - images/
     - assets/
+  fonts:
+    - family: openSans
+      fonts:
+        - asset: assets/OpenSans-Regular.ttf
+
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -69,10 +75,7 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-fonts:
-  - family: OpenSans
-    fonts:
-      - asset: fonts/OpenSans-Regular.ttf
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
