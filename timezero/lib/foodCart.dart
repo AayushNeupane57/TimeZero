@@ -160,7 +160,7 @@ class _FoodCartState extends State<FoodCart> {
                     item: _item,
                     hotel: Hotel(name:"Soltae",rating: 5, image:"images/soltae.jpg", foodItems:foodsSoltae),
                     orderedTime: DateTime.now(),
-                    durationSelected:Duration(hours: 1),
+                    durationSelected:Duration(seconds: 20),
                     stopwatch: Stopwatch()..start(),
 
 

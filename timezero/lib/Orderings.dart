@@ -214,10 +214,10 @@ class _Order extends State<Order> {
                 width: 60.0,
                 padding: EdgeInsets.only(top: 3.0, right: 4.0),
                 child: CountDownTimer(
-                  secondsRemaining: 3,
+                 secondsRemaining: 40,
                   whenTimeExpires: () {
                     setState(() {
-                      int x=5;
+                      print("time expired");
                     });
                   },
                   countDownTimerStyle: TextStyle(
