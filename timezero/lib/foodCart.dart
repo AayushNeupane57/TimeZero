@@ -158,7 +158,7 @@ class _FoodCartState extends State<FoodCart> {
                 for (var _item in foodCartData){
                   bookedDetails.add(BookedDetails(
                     item: _item,
-                    hotel: Hotel(name:"Soltae",rating: 5, image:"images/soltae.jpg", foodItems:foodsSoltae,position:"27.681327,85.324001,17z"), // yo kura database bata ligne/ save garne
+                    hotel: Hotel(name:"Soltae",rating: 5, image:"images/soltae.jpg", foodItems:foodsSoltae,position:"KFC+Durbar+Marg"), // yo kura database bata ligne/ save garne && position: ko value Google le provided value ho.
                     orderedTime: DateTime.now(),
                     durationSelected:Duration(seconds: 20),
                     stopwatch: Stopwatch()..start(),

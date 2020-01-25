@@ -1,11 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:geolocator/geolocator.dart';
+
+
 
 class Map extends StatefulWidget {
- String position;
+ String location;
 
-Map(this.position);
+
+Map(this.location);
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -15,8 +19,7 @@ Map(this.position);
 
 class _Map extends State<Map> {
 
-
-
+  final Geolocator geoLocator = Geolocator()..forceAndroidLocationManager;
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +29,18 @@ class _Map extends State<Map> {
             icon: Icon(Icons.location_on,
               color: Colors.blue,),
             onPressed: () {
-              String position = widget.position;
-//            String position = "27.6815169,85.321739,17z";
-              String googleUrl= "https://www.google.com/maps/@"+position;
-              print(position);
-//              print(googleUrl);
-              launch(googleUrl);
-//              launch("https://www.google.com/maps/@27.6690296,85.2825928,15z");
+//              getLocation();
+              geoLocator
+                  .getCurrentPosition(desiredAccuracy: LocationAccuracy.best)
+                  .then((Position _currentPosition) {
+                  print(_currentPosition);
+                  print(_currentPosition);
+                  launch("https://www.google.com/maps/dir/?api=1&origin=${_currentPosition.latitude},${_currentPosition.longitude}&destination=${widget.location}");
+
+                  });
+
+
+
             },
           ),
         Text("View on map",
@@ -40,5 +48,18 @@ class _Map extends State<Map> {
                 fontSize: 14))
       ],
     );
+
+
+
   }
-}
+
+//  void getLocation() async {
+//    Position _currentPosition = await Geolocator()
+//        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+//    print(_currentPosition);
+//    launch("https://www.google.com/maps/dir/?api=1&origin=${_currentPosition.latitude},${_currentPosition.longitude}&destination=${widget.location}");
+
+  }
+
+
+
