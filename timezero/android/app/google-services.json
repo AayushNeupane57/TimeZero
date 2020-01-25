@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "718809299436",
+    "firebase_url": "https://timezero-2c099.firebaseio.com",
+    "project_id": "timezero-2c099",
+    "storage_bucket": "timezero-2c099.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718809299436:android:2e721d4f1eb89ab40e28c9",
+        "android_client_info": {
+          "package_name": "timezero.com.timezero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "718809299436-l5usp4lits4rs6sjpdhami355572t4i9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "timezero.com.timezero",
+            "certificate_hash": "23ac74ceb2e401bc08aa07e152388e1cf5d45b63"
+          }
+        },
+        {
+          "client_id": "718809299436-m56e6hbt951iu9j4r5lld1rkfvvura4i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "timezero.com.timezero",
+            "certificate_hash": "d19731188b5b066ddaaefaf544cf05dd321c7d26"
+          }
+        },
+        {
+          "client_id": "718809299436-ep0qp3b1ifffvtha9um3s005sopivlpa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt68t0eBRZ1iQZFJuNnEzXVO5FAC24yjw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "718809299436-ep0qp3b1ifffvtha9um3s005sopivlpa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
