@@ -138,7 +138,7 @@ class _Order extends State<Order> {
                         icon: Icon(Icons.call,
                           color: Colors.green,),
                         onPressed: () {
-                          print("call buttonn  pressed");
+                          print("call button  pressed");
                           launch("tel:+9779867353344");
                         },
                       ),
