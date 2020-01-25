@@ -110,14 +110,15 @@ class Hotel {
   String name;
   int rating;
   String image;
+  String position;
   List <Items>foodItems;
-  Hotel({this.name,this.rating,this.image,this.foodItems});
+  Hotel({this.name,this.rating,this.image,this.foodItems,this.position});
 
 }
 
 
-Hotel soltae= Hotel(name:"Soltae",rating: 5, image:"images/soltae.jpg", foodItems:foodsSoltae);
-Hotel dwarika= Hotel(name:"Dwarika Hotel",rating: 5, image:"images/dwarika.jpg", foodItems:foodsDwarika);
-Hotel syanko =Hotel(name:"Syanko",rating: 4, image:"images/syanko.png", foodItems:foodsSyanko);
-Hotel kfc =Hotel(name:"KFC",rating: 3,image:"images/kfc.png", foodItems:foodsKfc);
-Hotel BurgerHouse =Hotel(name:"Burger House",rating: 4, image:"images/burgerHouse.jpg", foodItems:foodsBurgerHouse);
+Hotel soltae= Hotel(name:"Soltae",rating: 5, image:"images/soltae.jpg", foodItems:foodsSoltae,position:"27.6815169,85.321739,17z");
+Hotel dwarika= Hotel(name:"Dwarika Hotel",rating: 5, image:"images/dwarika.jpg", foodItems:foodsDwarika,position:"27.6815169,85.321739,17z");
+Hotel syanko =Hotel(name:"Syanko",rating: 4, image:"images/syanko.png", foodItems:foodsSyanko,position:"27.6815169,85.321739,17z");
+Hotel kfc =Hotel(name:"KFC",rating: 3,image:"images/kfc.png", foodItems:foodsKfc,position:"27.6815169,85.321739,17z");
+Hotel BurgerHouse =Hotel(name:"Burger House",rating: 4, image:"images/burgerHouse.jpg", foodItems:foodsBurgerHouse,position:"27.6815169,85.321739,17z");

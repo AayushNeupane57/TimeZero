@@ -2,6 +2,7 @@ import "package:flutter/material.dart";
 import 'database.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'counter.dart';
+import 'map.dart';
 
 
 class Order extends StatefulWidget {
@@ -153,6 +154,8 @@ class _Order extends State<Order> {
                       ),
                     ]
                 ),
+                Spacer(),
+                Map(_bookedItems[index].hotel.position),
                 Spacer(),
                 Column(
                     children:<Widget>[
