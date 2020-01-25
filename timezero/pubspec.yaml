@@ -22,7 +22,10 @@ dependencies:
   firebase_auth:
   google_sign_in:
   flutter_facebook_login:
+<<<<<<< HEAD
   cloud_firestore:
+=======
+>>>>>>> 20b657ee01ccbf3cf18dc2b9da603497f05ebf80
 
 
   flutter:

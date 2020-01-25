@@ -127,10 +127,10 @@ class CatagoriesButton extends StatelessWidget {
             boxShadow: [
               active
                   ? BoxShadow(
-                      color: Colors.yellow,
-                      offset: Offset(0, 3),
-                      blurRadius: 5.0,
-                    )
+                color: Colors.yellow,
+                offset: Offset(0, 3),
+                blurRadius: 5.0,
+              )
                   : BoxShadow()
             ],
           ),

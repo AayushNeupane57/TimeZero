@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 
 class FoodCart extends StatefulWidget {
   List<Items> foodCart;
+
   FoodCart();
   FoodCart.add({this.foodCart});
 
@@ -12,6 +13,7 @@ class FoodCart extends StatefulWidget {
 }
 
 class _FoodCartState extends State<FoodCart> {
+
   deleteAll() {
     setState(() {
       foodCartData.clear();
@@ -25,6 +27,7 @@ class _FoodCartState extends State<FoodCart> {
         //provides the gap between container and rest surrounding element
         margin: EdgeInsets.all(10),
         width: MediaQuery.of(context).size.width,
+
         decoration: BoxDecoration(
           color: Colors.white,
 
@@ -123,6 +126,7 @@ class _FoodCartState extends State<FoodCart> {
         appBar: AppBar(
           title: Text(
             "Your Cart",
+
             style: TextStyle(
               color: Colors.black,
               fontSize: 20,
@@ -140,6 +144,7 @@ class _FoodCartState extends State<FoodCart> {
             Expanded(
               child: GestureDetector(
                 onTap: () {},
+
                 child: Container(
                     padding: EdgeInsets.all(10),
                     child: ListView.builder(
@@ -148,22 +153,26 @@ class _FoodCartState extends State<FoodCart> {
                         itemBuilder: (context, index) {
                           return Dismissible(
                               key: Key(foodCartData[index].itemName),
+
                               onDismissed: (direction) {
                                 setState(() {
                                   foodCartData.removeAt(index);
                                 });
                               },
                               child: cartItem(index));
+
                         })),
               ),
             ),
             InkWell(
               onTap: () {
+
                 showDialog(
                     context: context,
                     builder: (context) {
                       return SettingUp(callBackFunction: deleteAll);
                     });
+
               },
               child: Container(
                 width: 200,
@@ -180,12 +189,14 @@ class _FoodCartState extends State<FoodCart> {
                   children: <Widget>[
                     Spacer(),
                     Text(
+
                       "Next",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 15),
+
                     ),
                     Spacer(),
                     Icon(
@@ -197,6 +208,7 @@ class _FoodCartState extends State<FoodCart> {
               ),
             ),
             SizedBox(height: 10),
+
           ],
         ),
       );
@@ -296,3 +308,4 @@ class _SettingUpState extends State<SettingUp> {
     );
   }
 }
+

@@ -4,7 +4,7 @@ import 'database.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'counter.dart';
 import 'testpage.dart';
-
+import 'map.dart';
 
 
 
@@ -109,6 +109,7 @@ class _Order extends State<Order> {
                                 countDownTimerStyle: TextStyle(
                                     color: Color(0XFFf5a623),
                                     fontSize: 14.0,
+
                                     height: 1.2),
                               ),
                             ),
@@ -141,7 +142,6 @@ class _Order extends State<Order> {
                         icon: Icon(Icons.call,
                           color: Colors.green,),
                         onPressed: () {
-                          print("call buttonn  pressed");
                           launch("tel:+9779867353344");
                         },
                       ),
@@ -158,6 +158,10 @@ class _Order extends State<Order> {
                     ]
                 ),
                 Spacer(),
+
+                Map(_bookedItems[index].hotel.position),
+                Spacer(),
+
                 Column(
                     children:<Widget>[
                       IconButton(
@@ -201,8 +205,9 @@ class _Order extends State<Order> {
                     text: "WAITING",
                   ),
                   Tab(
-                    icon: Icon(Icons.check_box),
+
                     text: "Testing",
+
                   ),
                   Tab(
                     icon: Icon(Icons.clear),
@@ -216,6 +221,7 @@ class _Order extends State<Order> {
 
 
               TestPage(),
+
 //              SingleChildScrollView(
 //                  child: Column(// 1st tab
 //                      children: <Widget>[
@@ -327,5 +333,4 @@ class _Order extends State<Order> {
             ])));
   }
 }
-
 

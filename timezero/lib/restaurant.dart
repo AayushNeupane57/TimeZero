@@ -1,14 +1,11 @@
+
 //this file contains three classes that are
 /* RestaurantPage ShowDetail and ShowL istOfFood */
-
-
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'components.dart';
 import 'database.dart';
-
-
 
 class RestaurantPage extends StatelessWidget {
   Hotel hotel;

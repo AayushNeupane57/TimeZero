@@ -25,6 +25,7 @@ class BookedDetails{
 
   BookedDetails({this.item,this.hotel,this.orderedTime,this.durationSelected,this.stopwatch});
 }
+<<<<<<< HEAD
 class Hotel {
 
   String name;
@@ -34,6 +35,8 @@ class Hotel {
   Hotel({this.name,this.rating,this.image,this.foodItems});
 
 }
+=======
+>>>>>>> 20b657ee01ccbf3cf18dc2b9da603497f05ebf80
 int count = 1;
 List <BookedDetails> bookedDetails =
 [
@@ -53,6 +56,7 @@ class Items
   String itemImage;
   String itemPrice;
   String associatedHotel;
+
 
   Items({this.itemName, this.itemImage,this.itemPrice});
 
@@ -111,11 +115,6 @@ List <Items> foodsBurgerHouse=[
   Items(itemName:"apple",itemImage:"images/apple.jpg",itemPrice:"100"),
   Items(itemName:"mango",itemImage:"images/mango.jpg",itemPrice:"100"),
 ];
-
-
-
-
-
 
 Hotel soltae= Hotel(name:"Soltae",rating: 5, image:"images/soltae.jpg", foodItems:foodsSoltae);
 Hotel dwarika= Hotel(name:"Dwarika Hotel",rating: 5, image:"images/dwarika.jpg", foodItems:foodsDwarika);
