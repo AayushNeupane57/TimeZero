@@ -13,7 +13,6 @@ class FoodCart extends StatefulWidget {
 }
 
 class _FoodCartState extends State<FoodCart> {
-
   deleteAll() {
     setState(() {
       foodCartData.clear();
@@ -126,7 +125,6 @@ class _FoodCartState extends State<FoodCart> {
         appBar: AppBar(
           title: Text(
             "Your Cart",
-
             style: TextStyle(
               color: Colors.black,
               fontSize: 20,
@@ -144,7 +142,6 @@ class _FoodCartState extends State<FoodCart> {
             Expanded(
               child: GestureDetector(
                 onTap: () {},
-
                 child: Container(
                     padding: EdgeInsets.all(10),
                     child: ListView.builder(
@@ -153,26 +150,22 @@ class _FoodCartState extends State<FoodCart> {
                         itemBuilder: (context, index) {
                           return Dismissible(
                               key: Key(foodCartData[index].itemName),
-
                               onDismissed: (direction) {
                                 setState(() {
                                   foodCartData.removeAt(index);
                                 });
                               },
                               child: cartItem(index));
-
                         })),
               ),
             ),
             InkWell(
               onTap: () {
-
                 showDialog(
                     context: context,
                     builder: (context) {
                       return SettingUp(callBackFunction: deleteAll);
                     });
-
               },
               child: Container(
                 width: 200,
@@ -189,14 +182,12 @@ class _FoodCartState extends State<FoodCart> {
                   children: <Widget>[
                     Spacer(),
                     Text(
-
                       "Next",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 15),
-
                     ),
                     Spacer(),
                     Icon(
@@ -208,7 +199,6 @@ class _FoodCartState extends State<FoodCart> {
               ),
             ),
             SizedBox(height: 10),
-
           ],
         ),
       );
@@ -270,7 +260,7 @@ class _SettingUpState extends State<SettingUp> {
             child: RaisedButton(
                 elevation: 5.0,
                 onPressed: () {
-                  if(timeSet!=null) {
+                  if (timeSet != null) {
                     for (var _item in foodCartData) {
                       bookedDetails.add(BookedDetails(
                         item: _item,
@@ -278,11 +268,12 @@ class _SettingUpState extends State<SettingUp> {
                             name: "Soltae",
                             rating: 5,
                             image: "images/soltae.jpg",
-                            foodItems: foodsSoltae),
+                            foodItems: foodsSoltae,
+                            position:
+                                "KFC+Durbar+Marg"), // yo kura database bata ligne/ save garne && position: ko value Google le provided value ho.
                         orderedTime: DateTime.now(),
                         durationSelected: timeSet,
-                        stopwatch: Stopwatch()
-                          ..start(),
+                        stopwatch: Stopwatch()..start(),
                       ));
                     }
                     widget?._callback();
@@ -296,7 +287,7 @@ class _SettingUpState extends State<SettingUp> {
                 color: Colors.white,
                 child: Text("Confirm Arrival Time",
                     style: TextStyle(
-                      color:Colors.amber,
+                      color: Colors.amber,
                       letterSpacing: 1.5,
                       fontSize: 18.0,
                       fontWeight: FontWeight.bold,
@@ -308,4 +299,3 @@ class _SettingUpState extends State<SettingUp> {
     );
   }
 }
-

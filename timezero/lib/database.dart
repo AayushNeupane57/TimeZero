@@ -1,20 +1,3 @@
-//class BookedDetails{
-//  String image;
-//  String name;
-//  // time at which order is made
-//  DateTime orderDateTime;
-//  // time the customer is supposed to get the food served
-//  DateTime finalDateTime;
-//  String address;
-//  String item;
-//  BookedDetails(this.image,this.name,this.orderDateTime,this.finalDateTime,this.address,this.item);
-//}
-//int count = 1;
-//List <BookedDetails> bookedDetails =
-//[
-//  BookedDetails("images/syanko.png","Syanko",DateTime.parse("2020-01-22 13:47:39.106637"),
-//    DateTime.parse("2020-01-22 14:11:39.106637"),"Thapathali","Burger"),
-//];
 
 class BookedDetails{
   Items item;
@@ -25,18 +8,17 @@ class BookedDetails{
 
   BookedDetails({this.item,this.hotel,this.orderedTime,this.durationSelected,this.stopwatch});
 }
-<<<<<<< HEAD
 class Hotel {
 
   String name;
   int rating;
   String image;
+  String position;
   List <Items>foodItems;
-  Hotel({this.name,this.rating,this.image,this.foodItems});
+  Hotel({this.name,this.rating,this.image,this.foodItems,this.position});
 
 }
-=======
->>>>>>> 20b657ee01ccbf3cf18dc2b9da603497f05ebf80
+
 int count = 1;
 List <BookedDetails> bookedDetails =
 [

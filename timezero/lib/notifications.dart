@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'hotels.dart';
-import 'components.dart';
 
 class NotificationData{
   String value;
