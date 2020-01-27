@@ -9,7 +9,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'openSans'),
+      theme: ThemeData(fontFamily: 'openSans',
+      primarySwatch:Colors.orange),
       home: Scaffold(
 
         body: SignInUP(mainText:"Sign In",isSignIn:true),

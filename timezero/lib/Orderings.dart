@@ -1,10 +1,7 @@
-
 import "package:flutter/material.dart";
-import 'package:timezero/home.dart';
 import 'database.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'counter.dart';
-import 'testpage.dart';
 import 'map.dart';
 
 
@@ -218,10 +215,8 @@ class _Order extends State<Order> {
             body: TabBarView(children: [
 
               _waitingTab(),
-              TestPage(),
-
-
-              TestPage(),
+              _waitingTab(),
+              _waitingTab(),
 
 //              SingleChildScrollView(
 //                  child: Column(// 1st tab
