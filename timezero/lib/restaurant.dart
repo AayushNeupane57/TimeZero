@@ -410,7 +410,7 @@ class ShowItemDetail extends StatelessWidget {
                                     context,
                                     MaterialPageRoute(
 
-                                      builder: (context) => OrderScreen(price:foodItem.itemPrice,image:foodItem.itemImage,itemName:foodItem.itemName),
+                                      builder: (context) => OrderScreen(price:foodItem.itemPrice,image:foodItem.itemImage,itemName:foodItem.itemName,),
                                     ));
                               },
                               child: Container(

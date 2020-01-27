@@ -40,62 +40,53 @@ class Items
   String associatedHotel;
 
 
-  Items({this.itemName, this.itemImage,this.itemPrice});
+  Items({this.itemName, this.itemImage,this.itemPrice,this.associatedHotel});
 
 
 }
 List <Items> foodsSoltae=[
-  Items(itemName:"Burger ",itemImage:"images/burger.jpg",itemPrice:"100"),
-  Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100"),
-  Items(itemName:"Momo",itemImage:"images/Momo.jpg",itemPrice:"100"),
-  Items(itemName:"Sandwich",itemImage:"images/sandwich.jpg",itemPrice:"100"),
-  Items(itemName:"Chow Mein",itemImage:"images/mango.jpg",itemPrice:"100"),
-  Items(itemName:"Chow Mein",itemImage:"images/apple.jpg",itemPrice:"100")];
+  Items(itemName:"Burger ",itemImage:"images/burger.jpg",itemPrice:"100",associatedHotel: "soltae"),
+  Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100",associatedHotel: "soltae"),
+  Items(itemName:"Momo",itemImage:"images/Momo.jpg",itemPrice:"100",associatedHotel: "soltae"),
+  Items(itemName:"Sandwich",itemImage:"images/sandwich.jpg",itemPrice:"100",associatedHotel: "soltae"),
+  Items(itemName:"Chow Mein",itemImage:"images/mango.jpg",itemPrice:"100",associatedHotel: "soltae"),
+  Items(itemName:"Chow Mein",itemImage:"images/apple.jpg",itemPrice:"100",associatedHotel: "soltae")];
 
 List <Items> foodsDwarika=[
-  Items(itemName:"Burger ",itemImage:"images/burger.jpg",itemPrice:"100"),
-  Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100"),
-  Items(itemName:"Momo",itemImage:"images/Momo.jpg",itemPrice:"100"),
-  Items(itemName:"Sandwich",itemImage:"images/sandwich.jpg",itemPrice:"100"),
-  Items(itemName:"Chow Mein",itemImage:"images/mango.jpg",itemPrice:"100"),
-  Items(itemName:"Chow Mein",itemImage:"images/apple.jpg",itemPrice:"100")];
+  Items(itemName:"Burger ",itemImage:"images/burger.jpg",itemPrice:"100",associatedHotel: "Dwarika"),
+  Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100",associatedHotel: "Dwarika"),
+  Items(itemName:"Momo",itemImage:"images/Momo.jpg",itemPrice:"100",associatedHotel: "Dwarika"),
+  Items(itemName:"Sandwich",itemImage:"images/sandwich.jpg",itemPrice:"100",associatedHotel: "Dwarika"),
+  Items(itemName:"Chow Mein",itemImage:"images/mango.jpg",itemPrice:"100",associatedHotel: "Dwarika"),
+  Items(itemName:"Chow Mein",itemImage:"images/apple.jpg",itemPrice:"100",associatedHotel: "Dwarika")
+];
 List <Items> foodsSyanko=[
 
-  Items(itemName:"Katti Roll",itemImage:"images/chicken.jpg",itemPrice:"100"),
-  Items(itemName:"Momo",itemImage:"images/Momo.jpg",itemPrice:"100"),
-  Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100"),
-  Items(itemName:"Sandwich",itemImage:"images/sandwich.jpg",itemPrice:"100"),
-  Items(itemName:"apple",itemImage:"images/apple.jpg",itemPrice:"100"),
-  Items(itemName:"mango",itemImage:"images/mango.jpg",itemPrice:"100"),
+  Items(itemName:"Katti Roll",itemImage:"images/chicken.jpg",itemPrice:"100",associatedHotel: "Syanko"),
+  Items(itemName:"Momo",itemImage:"images/Momo.jpg",itemPrice:"100",associatedHotel: "Syanko"),
+  Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100",associatedHotel: "Syanko"),
+  Items(itemName:"Sandwich",itemImage:"images/sandwich.jpg",itemPrice:"100",associatedHotel: "Syanko"),
+  Items(itemName:"apple",itemImage:"images/apple.jpg",itemPrice:"100",associatedHotel: "Syanko"),
+  Items(itemName:"mango",itemImage:"images/mango.jpg",itemPrice:"100",associatedHotel: "Syanko"),
 ];
 List <Items> foodsKfc=[
 
-  Items(itemName:"Fried Chicken",itemImage:"images/chicken.jpg",itemPrice:"100"),
-  Items(itemName:"Momo",itemImage:"images/Momo.jpg",itemPrice:"100"),
-  Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100"),
-  Items(itemName:"Sandwich",itemImage:"images/sandwich.jpg",itemPrice:"100"),
-  Items(itemName:"apple",itemImage:"images/apple.jpg",itemPrice:"100"),
-  Items(itemName:"mango",itemImage:"images/mango.jpg",itemPrice:"100"),
+  Items(itemName:"Fried Chicken",itemImage:"images/chicken.jpg",itemPrice:"100",associatedHotel: "KFC"),
+  Items(itemName:"Momo",itemImage:"images/Momo.jpg",itemPrice:"100",associatedHotel: "KFC"),
+  Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100",associatedHotel: "KFC"),
+  Items(itemName:"Sandwich",itemImage:"images/sandwich.jpg",itemPrice:"100",associatedHotel: "KFC"),
+  Items(itemName:"apple",itemImage:"images/apple.jpg",itemPrice:"100",associatedHotel: "KFC"),
+  Items(itemName:"mango",itemImage:"images/mango.jpg",itemPrice:"100",associatedHotel: "KFC"),
 ];
 List <Items> foodsBurgerHouse=[
 
-  Items(itemName:"Burger ",itemImage:"images/burger.jpg",itemPrice:"100"),
-  Items(itemName:"Momo",itemImage:"images/Momo.jpg",itemPrice:"100"),
-  Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100"),
-  Items(itemName:"Sandwich",itemImage:"images/sandwich.jpg",itemPrice:"100"),
-  Items(itemName:"apple",itemImage:"images/apple.jpg",itemPrice:"100"),
-  Items(itemName:"mango",itemImage:"images/mango.jpg",itemPrice:"100"),
-  Items(itemName:"Burger ",itemImage:"images/burger.jpg",itemPrice:"100"),
-  Items(itemName:"Momo",itemImage:"images/Momo.jpg",itemPrice:"100"),
-  Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100"),
-  Items(itemName:"Sandwich",itemImage:"images/sandwich.jpg",itemPrice:"100"),
-  Items(itemName:"apple",itemImage:"images/apple.jpg",itemPrice:"100"),
-  Items(itemName:"mango",itemImage:"images/mango.jpg",itemPrice:"100"), Items(itemName:"Burger ",itemImage:"images/burger.jpg",itemPrice:"100"),
-  Items(itemName:"Momo",itemImage:"images/Momo.jpg",itemPrice:"100"),
-  Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100"),
-  Items(itemName:"Sandwich",itemImage:"images/sandwich.jpg",itemPrice:"100"),
-  Items(itemName:"apple",itemImage:"images/apple.jpg",itemPrice:"100"),
-  Items(itemName:"mango",itemImage:"images/mango.jpg",itemPrice:"100"),
+  Items(itemName:"Burger ",itemImage:"images/burger.jpg",itemPrice:"100",associatedHotel: "Burger House"),
+  Items(itemName:"Momo",itemImage:"images/Momo.jpg",itemPrice:"100",associatedHotel: "Burger House"),
+  Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100",associatedHotel: "Burger House"),
+  Items(itemName:"Sandwich",itemImage:"images/sandwich.jpg",itemPrice:"100",associatedHotel: "Burger House"),
+  Items(itemName:"apple",itemImage:"images/apple.jpg",itemPrice:"100",associatedHotel: "Burger House"),
+  Items(itemName:"mango",itemImage:"images/mango.jpg",itemPrice:"100",associatedHotel: "Burger House"),
+  Items(itemName:"Burger ",itemImage:"images/burger.jpg",itemPrice:"100",associatedHotel: "Burger House"),
 ];
 
 Hotel soltae= Hotel(name:"Soltae",rating: 5, image:"images/soltae.jpg", foodItems:foodsSoltae,position:"27.6815169,85.321739,17z");
