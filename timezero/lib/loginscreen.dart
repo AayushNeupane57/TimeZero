@@ -2,13 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:timezero/HotelDashboard.dart';
+import 'package:timezero/HotelSignUp.dart';
 import 'package:timezero/root.dart';
 import 'constants.dart';
 import 'home.dart';
 import "auth.dart";
 import 'dart:async';
 import'HotelDashboard.dart';
-import'imageCapture.dart';
 
 String email;
 String password;
@@ -158,9 +158,30 @@ class _SignInUPState extends State<SignInUP> {
           MaterialPageRoute(builder: (context) => SignInUP(mainText:"Sign Up",isSignIn: false,)),
         ),
         child: Text(
-          "dont have an account? Sign Up",
+              "Consumer",
           style: TextStyle(
-            fontSize: 18,
+            fontSize: 15,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+          ),
+        ));
+  }
+  Widget _buildSignUpBtnAsHotel() {
+    return GestureDetector(
+        onTap: ()
+      {
+        print("hotel sign up");
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HotelSignUP(),
+            ));
+
+      },
+        child: Text(
+          "Hotel",
+          style: TextStyle(
+            fontSize: 15,
             fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
@@ -233,8 +254,14 @@ class _SignInUPState extends State<SignInUP> {
                       ],
                     ),
                   ):SizedBox(height: 20,),
-
+                  (isSignIn)?Text("dont have an account? Sign Up as:", style:TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  )):SizedBox(height: 10,),
                   (isSignIn)?_buildSignUpBtn():SizedBox(height: 10,),
+
+                  (isSignIn)?_buildSignUpBtnAsHotel():SizedBox(height: 10,),
 
 
 

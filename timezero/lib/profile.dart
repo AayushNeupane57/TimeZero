@@ -30,8 +30,9 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 //        backgroundColor: const Color(0xFFC89309),
-        body: Stack(
-            children: <Widget>[
+        body:
+        Stack(
+              children: <Widget>[
               SizedBox.expand(
                 child: Image.asset("images/profileBg.jpg",
                   height:100, fit: BoxFit.cover,),

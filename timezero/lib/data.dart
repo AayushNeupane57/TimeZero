@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'database.dart';
+import 'package:flutter/material.dart';
 
 Auth auth = new Auth();
 void bookedDetailsd(String itemName, DateTime orderedTime, DateTime comingTime) async{
@@ -160,6 +162,19 @@ class Data
     }
   }
 
+  void delFoodItems(String hotelName,String foodName) async
+  {
+    try
+    {
+      await Firestore.instance.collection(hotelName).document(foodName).delete();
+      print("added");
+    }
+    catch(e)
+    {
+      print(e);
+    }
+  }
+
   Future<Map<String,dynamic>> getFoodItems(String hotelName,String foodName) async
   {
     try{
@@ -176,7 +191,6 @@ class Data
       return item;
     }
   }
-
 
   void setHotel(String name,String image,int rating) async
   {

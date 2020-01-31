@@ -54,12 +54,14 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return WillPopScope(
-      onWillPop: ()async{setState(() {
-        tap=false;
-
-      }); return false;},
-      child: Scaffold(
+    return
+//      WillPopScope(
+//      onWillPop: ()async{setState(() {
+//        tap=false;
+//
+//      }); return false;},
+//      child:
+      Scaffold(
           appBar: PreferredSize(
             preferredSize: Size.fromHeight(100.0),
             child: AppBar(
@@ -84,8 +86,7 @@ class _HomeState extends State<Home> {
           body:Container(
       child: tap?_buildList():_buildHome(),
       )
-      ),
-    );
+      );
   }
 
   Widget _buildHome()
