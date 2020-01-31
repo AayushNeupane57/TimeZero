@@ -9,7 +9,6 @@ import 'home.dart';
 import "auth.dart";
 import 'dart:async';
 import'HotelDashboard.dart';
-import'imageCapture.dart';
 
 String email;
 String password;

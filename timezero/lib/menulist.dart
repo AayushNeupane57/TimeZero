@@ -16,7 +16,7 @@ class MenuList extends StatefulWidget {
 
   class _MenuList extends State<MenuList> {
     String nameOfFood = "";
-    double rate = 0;
+    String rate = " ";
     String imageAddress = "";
     File _image;
 
@@ -71,7 +71,7 @@ class MenuList extends StatefulWidget {
                                       ),
                                       onSaved: (String value) {
 
-                                        rate = double.parse(value) ;
+                                        rate = value ;
                                         print(rate);
                                       },
                                     ),
@@ -101,7 +101,9 @@ class MenuList extends StatefulWidget {
                                         if (_formKey.currentState.validate()) {
                                           _formKey.currentState.save();
                                           setState(() {
-                                            foodDetail.add( FoodDetail(nameOfFood ,"Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b",rate));
+//                                            foodDetail.add( Items(itemName:nameOfFood ,itemImage:"Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b",itemPrice: rate));
+                                            foodsSoltae.add( Items(itemName:nameOfFood ,itemImage: "Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b", itemPrice: rate,associatedHotel:"Soltae"));
+
                                             Navigator.of(context, rootNavigator: true).pop('dialog');
                                           });
                                         }
@@ -127,14 +129,14 @@ class MenuList extends StatefulWidget {
 
                 Expanded(
                   child: ListView.builder(
-                      itemCount: foodDetail.length,
+                      itemCount: foodsSoltae.length,
                       scrollDirection: Axis.vertical,
                       itemBuilder: (context, index) {
                         return Dismissible(
-                            key: Key(foodDetail[index].name),
+                            key: Key(foodsSoltae[index].itemName),
                             onDismissed: (direction) {
                               setState(() {
-                                foodDetail.removeAt(index);
+                                foodsSoltae.removeAt(index);
                               });
                             },
                             child: Row(
@@ -145,18 +147,18 @@ class MenuList extends StatefulWidget {
                                     Expanded(
                                       flex:2,
                                       child: CircleAvatar(
-                                  backgroundImage: NetworkImage("https://firebasestorage.googleapis.com/v0/b/timezero-2c099.appspot.com/o/images%2F${foodDetail[index].image}"),
+//                                  backgroundImage: NetworkImage("https://firebasestorage.googleapis.com/v0/b/timezero-2c099.appspot.com/o/images%2F${foodDetail[index].image}"),
                                   minRadius: 20,
                                   maxRadius: 20,
                                       ),
                                     ),
                                     Expanded(
                                         flex:3,
-                                        child: Text(foodDetail[index].name,style:kMenuStyle)),
+                                        child: Text(foodsSoltae[index].itemName,style:kMenuStyle)),
 
                                     Expanded(
                                         flex:2,
-                                        child: Text("Rs. ${foodDetail[index].rate}",style:kMenuStyle)),
+                                        child: Text("Rs. ${foodsSoltae[index].itemPrice}",style:kMenuStyle)),
 
                                   ],
                                 ));

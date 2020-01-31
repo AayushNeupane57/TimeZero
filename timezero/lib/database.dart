@@ -5,13 +5,13 @@ import'dart:io';
 class FoodDetail {
   String name;
   String image;
-  double rate;
+  String rate;
   FoodDetail(this.name,this.image,this.rate);
 
 }
 
 List<FoodDetail> foodDetail = [
-  FoodDetail("aaditya", "Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b",120)
+  FoodDetail("aaditya", "Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b","120")
 ];
 
 
@@ -61,6 +61,10 @@ class Items
 
 
 }
+
+
+
+
 List <Items> foodsSoltae=[
   Items(itemName:"Burger ",itemImage:"images/burger.jpg",itemPrice:"100",associatedHotel: "soltae"),
   Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100",associatedHotel: "soltae"),
