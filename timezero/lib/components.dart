@@ -251,6 +251,11 @@ class ItemCardFood extends StatelessWidget {
                 fontFamily: "poppins",
               ),
             ),
+            Text(h1.associatedHotel,style:
+            TextStyle(
+                color: Color(0XFFf5a623),
+                fontSize: 17.0,
+                height: 1.2),),
           ],
         ),
       ),
@@ -262,8 +267,9 @@ class OrderScreen extends StatefulWidget {
   final String price;
   final String image;
   final String itemName;
+  final String associatedHotel;
 
-  OrderScreen({this.price, this.image, this.itemName});
+  OrderScreen({this.price, this.image, this.itemName,this.associatedHotel});
   @override
   _OrderScreenState createState() => _OrderScreenState();
 }
