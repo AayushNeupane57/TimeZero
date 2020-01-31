@@ -42,10 +42,6 @@ class _SignInUPState extends State<SignInUP> {
             onPressed: () {
 
               print('Forgot password pressed');
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HotelDashboard()),
-              );
               },
             padding: EdgeInsets.only(right: 0.0),
             child: Text(
