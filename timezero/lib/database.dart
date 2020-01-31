@@ -1,6 +1,7 @@
 
 class BookedDetails{
-  Items item;
+//  Items item;
+  Item item;
   Hotel hotel;
   DateTime orderedTime;
   Duration durationSelected;
@@ -25,12 +26,24 @@ List <BookedDetails> bookedDetails =
 
 ];
 
+void add(String itemName, String associatedHotel)
+{
+//  foodCartData.add(Items(itemName:itemName,itemImage:itemImage,itemPrice:itemPrice,associatedHotel: associatedHotel));
+  foodCartData.add(Item(itemName:itemName,associatedHotel: associatedHotel));
+}
 
-
-List <Items>foodCartData=[
-  Items(itemName:"Burger ",itemImage:"images/burger.jpg",itemPrice:"100"),
-
+List<Item> foodCartData = [
+  Item(itemName:"mango",associatedHotel:"KFC"),
+  Item(itemName:"Momo",associatedHotel:"Syanko")
 ];
+//List<Items> foodCartData;
+
+class Item
+{
+  String itemName;
+  String associatedHotel;
+  Item({this.itemName,this.associatedHotel});
+}
 
 class Items
 {
@@ -38,12 +51,9 @@ class Items
   String itemImage;
   String itemPrice;
   String associatedHotel;
-
-
   Items({this.itemName, this.itemImage,this.itemPrice,this.associatedHotel});
-
-
 }
+
 List <Items> foodsSoltae=[
   Items(itemName:"Burger ",itemImage:"images/burger.jpg",itemPrice:"100",associatedHotel: "soltae"),
   Items(itemName:"Chow Mein",itemImage:"images/Chow Mein.jpg",itemPrice:"100",associatedHotel: "soltae"),

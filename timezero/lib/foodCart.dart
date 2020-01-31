@@ -3,7 +3,8 @@ import 'database.dart';
 import 'package:flutter/cupertino.dart';
 
 class FoodCart extends StatefulWidget {
-  List<Items> foodCart;
+//  List<Items> foodCart;
+  List<Item> foodCart;
 
   FoodCart();
   FoodCart.add({this.foodCart});
@@ -26,10 +27,8 @@ class _FoodCartState extends State<FoodCart> {
         //provides the gap between container and rest surrounding element
         margin: EdgeInsets.all(10),
         width: MediaQuery.of(context).size.width,
-
         decoration: BoxDecoration(
           color: Colors.white,
-
 //            boxShadow: [
 //              BoxShadow(
 //                blurRadius: 5,
@@ -149,7 +148,7 @@ class _FoodCartState extends State<FoodCart> {
                         scrollDirection: Axis.vertical,
                         itemBuilder: (context, index) {
                           return Dismissible(
-                              key: Key(foodCartData[index].itemName),
+                              key: Key(foodCartData[0].itemName),
                               onDismissed: (direction) {
                                 setState(() {
                                   foodCartData.removeAt(index);

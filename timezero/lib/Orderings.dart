@@ -33,7 +33,8 @@ class _Order extends State<Order> {
             scrollDirection: Axis.vertical,
             itemBuilder: (context, index) {
               return OrderedItemCard(index);
-            }));
+            }
+            ));
   }
 
   Widget OrderedItemCard(int index) {
@@ -43,7 +44,6 @@ class _Order extends State<Order> {
         width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
           color: Colors.white,
-
 //            boxShadow: [
 //              BoxShadow(
 //                blurRadius: 5,
@@ -61,7 +61,7 @@ class _Order extends State<Order> {
                 Expanded(
                   flex:3,
                   child: ClipOval(
-                    child: Image.asset(_bookedItems[index].item.itemImage),
+                    child: Image.asset("images/mango.jpg"),//_bookedItems[index].item.itemImage),
                   ),
                 ),
                 SizedBox(
