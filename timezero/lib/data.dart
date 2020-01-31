@@ -2,6 +2,46 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'auth.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'database.dart';
+import 'package:flutter/material.dart';
+
+Auth auth = new Auth();
+void bookedDetailsd(String itemName, DateTime orderedTime, DateTime comingTime) async{
+  try
+  {
+    FirebaseUser user= await auth.currentuser();
+    await Firestore.instance.collection("BookedDetails").document().setData({
+      'userName' : user.displayName,
+      'email' : user.email,
+      'itemName':itemName,
+      'orderedTime': orderedTime,
+      'comingTime' : comingTime,
+
+    });
+    print("added");
+  }
+  catch(e)
+  {
+    print(e);
+    print("printing catch block");
+  }
+}
+
+void setFoodItems(String hotelName,String foodName,String image,String price) async
+{
+  try
+  {
+    await Firestore.instance.collection(hotelName).document(foodName).setData({
+      'image' : image,
+      'price' : price
+    });
+    print("added");
+  }
+  catch(e)
+  {
+    print(e);
+  }
+}
+
 
 class Data
 {
@@ -121,6 +161,7 @@ class Data
       print(e);
     }
   }
+
   void delFoodItems(String hotelName,String foodName) async
   {
     try
@@ -151,33 +192,6 @@ class Data
     }
   }
 
-  void bookedDetails(Items item , Hotel hotel , DateTime orderedTime, Duration duration , String userId) async{
-  try
-  {
-  await Firestore.instance.collection("BookedDetails").document(userId).setData({
-    'Item':{
-      'itemName': item.itemName,
-      'image': item.itemImage,
-      'price': item.itemPrice,
-      'associatedhotel' : item.associatedHotel
-    },
-    'Hotel':{
-      'name' : hotel.name,
-      'image': hotel.image,
-      'rating': hotel.rating,
-      'postion': hotel.position
-    } ,
-    'orderedTime': orderedTime,
-    'duration' : duration,
-    'userId': userId
-  });
-  print("added");
-  }
-  catch(e)
-  {
-  print(e);
-  }
-}
   void setHotel(String name,String image,int rating) async
   {
     try

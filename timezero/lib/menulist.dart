@@ -42,7 +42,8 @@ class MenuList extends StatefulWidget {
                     appBar: AppBar(
                       backgroundColor: Colors.redAccent,
                       centerTitle: true,
-                      title: const Text('Menu List'),),
+                      title: Text('Menu List'),
+                    ),
                     body: Container(
                       padding: EdgeInsets.all(20),
                       child: Column(

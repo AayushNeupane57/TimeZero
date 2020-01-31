@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'database.dart';
 import 'package:flutter/cupertino.dart';
+import 'data.dart';
 
 class FoodCart extends StatefulWidget {
   List<Items> foodCart;
@@ -262,19 +263,11 @@ class _SettingUpState extends State<SettingUp> {
                 onPressed: () {
                   if (timeSet != null) {
                     for (var _item in foodCartData) {
-                      bookedDetails.add(BookedDetails(
-                        item: _item,
-                        hotel: Hotel(
-                            name: "Soltae",
-                            rating: 5,
-                            image: "images/soltae.jpg",
-                            foodItems: foodsSoltae,
-                            position:
-                                "KFC+Durbar+Marg"), // yo kura database bata ligne/ save garne && position: ko value Google le provided value ho.
-                        orderedTime: DateTime.now(),
-                        durationSelected: timeSet,
-                        stopwatch: Stopwatch()..start(),
-                      ));
+                      bookedDetailsd(
+                        _item.itemName,
+                        DateTime.now(),
+                        DateTime.now().add(timeSet)
+                      );
                     }
                     widget?._callback();
                     Navigator.pop(context);
