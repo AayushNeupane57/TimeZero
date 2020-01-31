@@ -118,7 +118,7 @@ class MenuList extends StatefulWidget {
                                                       data.setFoodItems(
                                                           "Soltae", nameOfFood,
                                                           "Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b",
-                                                          "500000");
+                                                          rate);
 //                                            foodDetail.add( Items(itemName:nameOfFood ,itemImage:"Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b",itemPrice: rate));
 //                                            foodsSoltae.add( Items(itemName:nameOfFood ,itemImage: "Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b", itemPrice: rate,associatedHotel:"Soltae"));
 
@@ -154,10 +154,14 @@ class MenuList extends StatefulWidget {
                                 scrollDirection: Axis.vertical,
                                 itemBuilder: (context, index) {
                                   return Dismissible(
-                                      key: Key(snapshot.data.documents[index].documentID),
+                                      key: Key(snapshot.data.documents[index]
+                                          .documentID),
                                       onDismissed: (direction) {
                                         setState(() {
-                                          Firestore.instance.collection("Soltae").document(snapshot.data.documents[index].documentID).delete();
+                                          Firestore.instance.collection(
+                                              "Soltae").document(
+                                              snapshot.data.documents[index]
+                                                  .documentID).delete();
                                         });
                                       },
                                       child: Row(
@@ -177,14 +181,16 @@ class MenuList extends StatefulWidget {
                                           Expanded(
                                               flex: 3,
                                               child: Text(
-                                                  snapshot.data.documents[index].documentID,
+                                                  snapshot.data.documents[index]
+                                                      .documentID,
                                                   style: kMenuStyle)),
 
                                           Expanded(
                                               flex: 2,
                                               child: Text(
 
-                                                  "Rs. ${snapshot.data.documents[index]['price']}",
+                                                  "Rs. ${snapshot.data
+                                                      .documents[index]['price']}",
                                                   style: kMenuStyle)),
 
                                         ],

@@ -71,7 +71,8 @@ class _HomeState extends State<Home> {
                   onTap: (){setState(() {
                     tap=true;
 
-                  });},
+                  });
+                  },
                   controller: _filter,
                   textInputAction: TextInputAction.search,
                   decoration: InputDecoration(
@@ -84,7 +85,7 @@ class _HomeState extends State<Home> {
                 ]),
           ),
           body:Container(
-      child: tap?_buildList():_buildHome(),
+               child: tap?_buildList():_buildHome(),
       )
       );
   }
