@@ -1,11 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:timezero/HotelDashboard.dart';
 import 'package:timezero/root.dart';
 import 'constants.dart';
 import 'home.dart';
 import "auth.dart";
 import 'dart:async';
+import'HotelDashboard.dart';
+import'imageCapture.dart';
 
 String email;
 String password;
@@ -36,7 +39,14 @@ class _SignInUPState extends State<SignInUP> {
     return Container(
         alignment: Alignment.centerRight,
         child: FlatButton(
-            onPressed: () => print('Forgot password pressed'),
+            onPressed: () {
+
+              print('Forgot password pressed');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HotelDashboard()),
+              );
+              },
             padding: EdgeInsets.only(right: 0.0),
             child: Text(
               'Forgot Password?',
@@ -360,6 +370,7 @@ class EmailField extends StatelessWidget {
               hintStyle: kHintTextStyle,
             ),
             onChanged: (value){
+
               email = value;
             },
           ),

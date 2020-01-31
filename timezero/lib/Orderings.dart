@@ -12,8 +12,8 @@ import 'map.dart';
 class Order extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return _Order();
+  // TODO: implement createState
+  return _Order();
   }
 }
 

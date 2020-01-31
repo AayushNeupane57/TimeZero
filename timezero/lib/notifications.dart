@@ -168,7 +168,8 @@ class _NotiFicationState extends State<NotiFication> {
                   onDismissed: (direction){setState(() {
                         datas.removeAt(index);});},
               child:NotificationCard(index));
-            })),
+            })
+      ),
       );
   }
 }

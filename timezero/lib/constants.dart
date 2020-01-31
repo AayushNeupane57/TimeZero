@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+
+final kMenuStyle = TextStyle(
+  color: Colors.black,
+  fontWeight: FontWeight.bold,
+  fontFamily: 'OpenSans',
+  fontSize: 15,
+);
+
+
 final kHintTextStyle = TextStyle(
   color: Colors.white54,
   fontFamily: 'OpenSans',
