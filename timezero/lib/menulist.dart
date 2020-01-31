@@ -71,6 +71,24 @@ class MenuList extends StatefulWidget {
                                   ),
                                 ),
 
+                                Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child:TextFormField(
+                                    decoration: const InputDecoration(
+                                      icon: Icon(Icons.text_fields),
+                                      hintText: 'choose photo',
+                                      labelText: 'Photo',
+                                    ),
+                                    onSaved: (String value) {
+
+                                      imageAddress = value;
+                                      print(imageAddress);
+                                    },
+                                  ),
+                                ),
+
+
+
 
 
 
@@ -82,12 +100,15 @@ class MenuList extends StatefulWidget {
                                       if (_formKey.currentState.validate()) {
                                         _formKey.currentState.save();
                                         setState(() {
-//                                          foodDetail.add()
+                                          foodDetail.add( FoodDetail(nameOfFood ,"Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b",rate));
+                                          Navigator.of(context, rootNavigator: true).pop('dialog');
                                         });
                                       }
                                     },
                                   ),
-                                )
+                                ),
+
+
                               ],
                             ),
                           ),
