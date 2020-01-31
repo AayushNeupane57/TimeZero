@@ -49,6 +49,13 @@ List <Items>foodCartData=[
 
 ];
 
+class Item
+{
+  String itemName;
+  String associatedHotel;
+  Item({this.itemName,this.associatedHotel});
+}
+
 class Items
 {
   String itemName;

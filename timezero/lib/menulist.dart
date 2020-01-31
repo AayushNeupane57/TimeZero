@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import "package:flutter/material.dart";
 import 'constants.dart';
 import'database.dart';
-import 'dart:io';
+import 'data.dart';
 
 class MenuList extends StatefulWidget {
   @override
@@ -98,7 +98,8 @@ class MenuList extends StatefulWidget {
                                         if (_formKey.currentState.validate()) {
                                           _formKey.currentState.save();
                                           setState(() {
-                                            foodDetail.add( FoodDetail(nameOfFood ,"Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b",rate));
+                                            setFoodItems("Soltae",nameOfFood,"Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b",rate.toString());
+//                                            foodDetail.add( FoodDetail(nameOfFood ,"Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b",rate));
                                             Navigator.of(context, rootNavigator: true).pop('dialog');
                                           });
                                         }

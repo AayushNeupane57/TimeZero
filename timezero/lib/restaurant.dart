@@ -1,4 +1,3 @@
-
 //this file contains three classes that are
 /* RestaurantPage ShowDetail and ShowL istOfFood */
 
@@ -161,7 +160,7 @@ class RestaurantPage extends StatelessWidget {
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10),
                               gradient: LinearGradient(
-                                  colors: [Colors.orangeAccent, Colors.pinkAccent],
+                                colors: [Colors.orangeAccent, Colors.pinkAccent],
                               ),
                               boxShadow: [
                                 BoxShadow(blurRadius: 5.0, color: Colors.orange)
@@ -243,216 +242,216 @@ class ShowItemDetail extends StatelessWidget {
        the following technique with a Builder can be used to provide a new scope with a BuildContext that is "under" the Scaffold:*/
 
       body: Builder(
-        builder: (BuildContext context){
-        return SafeArea(
-          child: Stack(
-            children: <Widget>[
-              Container(
-                padding: EdgeInsets.all(15),
-                height: MediaQuery.of(context).size.height / 1.9,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(foodItem.itemImage),
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Row(
+          builder: (BuildContext context){
+            return SafeArea(
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.all(15),
+                    height: MediaQuery.of(context).size.height / 1.9,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(foodItem.itemImage),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        RoundButton(icon: Icons.arrow_back_ios, onTap: (){Navigator.pop(context);},),
-                        Spacer(),
-                        RoundButton(icon: Icons.favorite_border),
-                        SizedBox(width: 5.0),
-                        RoundButton(icon: Icons.ac_unit),
+                        Row(
+                          children: <Widget>[
+                            RoundButton(icon: Icons.arrow_back_ios, onTap: (){Navigator.pop(context);},),
+                            Spacer(),
+                            RoundButton(icon: Icons.favorite_border),
+                            SizedBox(width: 5.0),
+                            RoundButton(icon: Icons.ac_unit),
+                          ],
+                        ),
                       ],
                     ),
-                  ],
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  padding: EdgeInsets.all(25),
-                  height: MediaQuery.of(context).size.height / 2,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(35),
-                      topRight: Radius.circular(35),
-                    ),
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-
-                      Text(
-                        foodItem.itemName,
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25,
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      padding: EdgeInsets.all(25),
+                      height: MediaQuery.of(context).size.height / 2,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(35),
+                          topRight: Radius.circular(35),
                         ),
                       ),
-
-                      SizedBox(
-                        height: 11,
-                      ),
-                      Row(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
-                          CircleAvatar(
-                            backgroundImage:
-                            AssetImage('images/profile.png'),
-                          ),
-                          SizedBox(width: 11),
+
                           Text(
-                            "Username",
-                            style: TextStyle(fontWeight: FontWeight.bold),
+                            foodItem.itemName,
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 25,
+                            ),
                           ),
-                          SizedBox(width: 21),
-                          Text(
-                            "22:30",
-                            style: TextStyle(color: Colors.grey[500]),
+
+                          SizedBox(
+                            height: 11,
+                          ),
+                          Row(
+                            children: <Widget>[
+                              CircleAvatar(
+                                backgroundImage:
+                                AssetImage('images/profile.png'),
+                              ),
+                              SizedBox(width: 11),
+                              Text(
+                                "Username",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ),
+                              SizedBox(width: 21),
+                              Text(
+                                "22:30",
+                                style: TextStyle(color: Colors.grey[500]),
+                              ),
+                              Spacer(),
+                              Icon(
+                                Icons.favorite,
+                                color: Colors.pink,
+                              ),
+                              SizedBox(width: 5),
+                              Text(
+                                "59",
+                                style: TextStyle(color: Colors.pink),
+                              ),
+                              SizedBox(width: 11),
+                              Icon(
+                                Icons.comment,
+                                color: Colors.grey,
+                              ),
+                              SizedBox(width: 5),
+                              Text(
+                                "129",
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                            ],
                           ),
                           Spacer(),
-                          Icon(
-                            Icons.favorite,
-                            color: Colors.pink,
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            "59",
-                            style: TextStyle(color: Colors.pink),
-                          ),
-                          SizedBox(width: 11),
-                          Icon(
-                            Icons.comment,
-                            color: Colors.grey,
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            "129",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                        ],
-                      ),
-                      Spacer(),
-                      Container(
-                        margin: EdgeInsets.all(30),
-                        width: MediaQuery.of(context).size.width / 1.5,
-                        height:50,
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          color:Colors.amber,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Price=" + foodItem.itemPrice,
-                            style: TextStyle(
-                                fontWeight:
-                                FontWeight.bold,
-                                fontSize:30,
+                          Container(
+                            margin: EdgeInsets.all(30),
+                            width: MediaQuery.of(context).size.width / 1.5,
+                            height:50,
+                            padding: EdgeInsets.all(5),
+                            decoration: BoxDecoration(
+                              color:Colors.amber,
+                              borderRadius: BorderRadius.circular(20),
                             ),
-                          ),
-                        ),
-                      ),
-
-                      Row(
-                        children: <Widget>[
-                          Expanded(
-                            child: InkWell(
-                              onTap: () {
-
-                                foodCartData.add(foodItem);
-                                final snackBar = SnackBar(content: Text('Item added to cart sucessfully'));
-                                Scaffold.of(context).showSnackBar(snackBar);
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(15),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    gradient: LinearGradient(
-                                      colors: [Colors.yellow, Colors.orange],
-                                    ),
-                                    boxShadow: [
-                                      BoxShadow(blurRadius: 5.0, color: Colors.orange)
-                                    ]),
-                                child: Row(
-                                  children: <Widget>[
-                                    Spacer(),
-                                    Text(
-                                      "Add to Cart",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontWeight: FontWeight.bold, fontSize: 15),
-                                    ),
-                                    Spacer(),
-                                    Icon(
-                                      Icons.arrow_forward,
-                                      color: Colors.white,
-                                    )
-                                  ],
+                            child: Center(
+                              child: Text(
+                                "Price=" + foodItem.itemPrice,
+                                style: TextStyle(
+                                  fontWeight:
+                                  FontWeight.bold,
+                                  fontSize:30,
                                 ),
                               ),
                             ),
                           ),
-                          SizedBox(width: 10,),
-                          Expanded(
-                            child: InkWell(
-                              onTap: () {
-                                foodCartData.add(foodItem);
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
 
-                                      builder: (context) => OrderScreen(price:foodItem.itemPrice,image:foodItem.itemImage,itemName:foodItem.itemName,),
-                                    ));
-                              },
-                              child: Container(
-                                padding: EdgeInsets.all(15),
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(15),
-                                    gradient: LinearGradient(
-                                      colors: [Colors.yellow, Colors.orange],
-                                    ),
-                                    boxShadow: [
-                                      BoxShadow(blurRadius: 5.0, color: Colors.orange)
-                                    ]),
-                                child: Row(
-                                  children: <Widget>[
-                                    Spacer(),
-                                    Text(
-                                      "Direct Oder",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
+                          Row(
+                            children: <Widget>[
+                              Expanded(
+                                child: InkWell(
+                                  onTap: () {
+
+                                    foodCartData.add(foodItem);
+                                    final snackBar = SnackBar(content: Text('Item added to cart sucessfully'));
+                                    Scaffold.of(context).showSnackBar(snackBar);
+                                  },
+                                  child: Container(
+                                    padding: EdgeInsets.all(15),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        gradient: LinearGradient(
+                                          colors: [Colors.yellow, Colors.orange],
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(blurRadius: 5.0, color: Colors.orange)
+                                        ]),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Spacer(),
+                                        Text(
+                                          "Add to Cart",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold, fontSize: 15),
+                                        ),
+                                        Spacer(),
+                                        Icon(
+                                          Icons.arrow_forward,
                                           color: Colors.white,
-                                          fontWeight: FontWeight.bold, fontSize: 15),
+                                        )
+                                      ],
                                     ),
-                                    Spacer(),
-                                    Icon(
-                                      Icons.arrow_forward,
-                                      color: Colors.white,
-                                    )
-                                  ],
+                                  ),
                                 ),
                               ),
-                            ),
+                              SizedBox(width: 10,),
+                              Expanded(
+                                child: InkWell(
+                                  onTap: () {
+                                    foodCartData.add(foodItem);
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+
+                                          builder: (context) => OrderScreen(price:foodItem.itemPrice,image:foodItem.itemImage,itemName:foodItem.itemName,),
+                                        ));
+                                  },
+                                  child: Container(
+                                    padding: EdgeInsets.all(15),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        gradient: LinearGradient(
+                                          colors: [Colors.yellow, Colors.orange],
+                                        ),
+                                        boxShadow: [
+                                          BoxShadow(blurRadius: 5.0, color: Colors.orange)
+                                        ]),
+                                    child: Row(
+                                      children: <Widget>[
+                                        Spacer(),
+                                        Text(
+                                          "Direct Oder",
+                                          textAlign: TextAlign.center,
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold, fontSize: 15),
+                                        ),
+                                        Spacer(),
+                                        Icon(
+                                          Icons.arrow_forward,
+                                          color: Colors.white,
+                                        )
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
+                ],
               ),
-            ],
-          ),
-        );
-  }
+            );
+          }
       ),
     );
   }
@@ -467,37 +466,32 @@ class ShowListOfFoods extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title:Text("Available Foods",
+        appBar: AppBar(
+          title:Text("Available Foods",
             style: TextStyle(
               color: Colors.black,
 
             ),
+          ),
+          backgroundColor: Colors.transparent,
+          elevation: 0.0,
+          iconTheme: IconThemeData(
+            color: Colors.redAccent,
+          ),
+
+
         ),
-        backgroundColor: Colors.transparent,
-        elevation: 0.0,
-        iconTheme: IconThemeData(
-          color: Colors.redAccent,
-        ),
+        body: GridView.count(
+          // Create a grid with 2 columns. If you change the scrollDirection to
+          // horizontal, this produces 2 rows.
+          crossAxisCount: 2,
+          // Generate 100 widgets that display their index in the List.
+          children: List.generate(foodItems.length, (index) {
+            return ItemCardFood(
+              h1: foodItems[index],
+            );
+          }),
 
-
-      ),
-      body: GridView.count(
-        // Create a grid with 2 columns. If you change the scrollDirection to
-        // horizontal, this produces 2 rows.
-        crossAxisCount: 2,
-        // Generate 100 widgets that display their index in the List.
-        children: List.generate(foodItems.length, (index) {
-          return ItemCardFood(
-                     h1: foodItems[index],
-                      );
-        }),
-
-    ));
+        ));
   }
 }
-
-
-
-
-

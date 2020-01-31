@@ -1,6 +1,8 @@
 import'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:timezero/foodRequests.dart';
 import 'package:timezero/menulist.dart';
+import 'notifications.dart';
 
 
 
@@ -95,12 +97,23 @@ class _HotelDashboard extends State<HotelDashboard> {
 
               GestureDetector(
                   onTap: () {
+
                     print("Notification");
+//                    Navigator.push(
+//                        context,
+//                        MaterialPageRoute(
+//                          builder: (context) => Notification(),
+//                        ));
                   },
                   child: myItems(Icons.notifications_active, "Notifications", 0xffff3266)),
               GestureDetector(
                   onTap: () {
                     print("Food request");
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => FoodRequest(),
+                        ));
                   },
                   child: myItems(Icons.fastfood, "Food Request", 0xffffa500)),
               GestureDetector(

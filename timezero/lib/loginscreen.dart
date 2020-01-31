@@ -81,8 +81,7 @@ class _SignInUPState extends State<SignInUP> {
   Widget _buildLoginBtn() {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 25.0),
-      width: double.infinity,
-      child:RaisedButton(
+      width: double.infinity,      child:RaisedButton(
           elevation: 5.0,
           onPressed: () {
             if (_rememberMe)
