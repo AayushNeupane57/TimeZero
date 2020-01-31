@@ -74,7 +74,7 @@ class _SignInUPState extends State<SignInUP> {
             ),
           ),
           Text(
-            "Remember me",
+            "Login as Hotel?",
             style: kLabelStyle,
           )
         ],
@@ -89,10 +89,19 @@ class _SignInUPState extends State<SignInUP> {
       child:RaisedButton(
           elevation: 5.0,
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => MyHome()),
+            if (_rememberMe)
+              {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HotelDashboard()));
+              }
+            else {
+              Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => MyHome()),
             );
+            }
+
 
           }
 //          onPressed: () async {
