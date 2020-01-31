@@ -2,6 +2,8 @@ import "package:flutter/material.dart";
 import 'constants.dart';
 import'database.dart';
 import 'dart:io';
+import 'package:image_picker/image_picker.dart';
+
 
 class MenuList extends StatefulWidget {
   @override
@@ -12,11 +14,13 @@ class MenuList extends StatefulWidget {
 }
 
   class _MenuList extends State<MenuList> {
-  String nameOfFood ="";
-  double rate = 0;
-  String imageAddress = "";
+    String nameOfFood = "";
+    double rate = 0;
+    String imageAddress = "";
+    File _image;
 
     final _formKey = GlobalKey<FormState>();
+
     @override
     Widget build(BuildContext context) {
       return
@@ -42,30 +46,29 @@ class MenuList extends StatefulWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: <Widget>[
                                 Padding(
-                                  padding: EdgeInsets.all(8.0),
-                                  child: TextFormField(
-                                    decoration: const InputDecoration(
-                                      icon: Icon(Icons.text_fields),
-                                      hintText: 'Enter the name of the food item',
-                                      labelText: 'Food Name',
-                                    ),
-                                    onSaved: (String value) {
-                                     print(value);
-                                     nameOfFood = value;
-                                    },
-                                  )
+                                    padding: EdgeInsets.all(8.0),
+                                    child: TextFormField(
+                                      decoration: const InputDecoration(
+                                        icon: Icon(Icons.text_fields),
+                                        hintText: 'Enter the name of the food item',
+                                        labelText: 'Food Name',
+                                      ),
+                                      onSaved: (String value) {
+                                        print(value);
+                                        nameOfFood = value;
+                                      },
+                                    )
                                 ),
                                 Padding(
                                   padding: EdgeInsets.all(8.0),
-                                  child:TextFormField(
+                                  child: TextFormField(
                                     decoration: const InputDecoration(
                                       icon: Icon(Icons.text_fields),
                                       hintText: 'Enter the rate',
                                       labelText: 'Rate',
                                     ),
                                     onSaved: (String value) {
-
-                                      rate = double.parse(value) ;
+                                      rate = double.parse(value);
                                       print(rate);
                                     },
                                   ),
@@ -73,23 +76,10 @@ class MenuList extends StatefulWidget {
 
                                 Padding(
                                   padding: EdgeInsets.all(8.0),
-                                  child:TextFormField(
-                                    decoration: const InputDecoration(
-                                      icon: Icon(Icons.text_fields),
-                                      hintText: 'choose photo',
-                                      labelText: 'Photo',
-                                    ),
-                                    onSaved: (String value) {
-
-                                      imageAddress = value;
-                                      print(imageAddress);
-                                    },
-                                  ),
-                                ),
-
-
-
-
+                                  child: RaisedButton.icon(
+                                      onPressed: open_gallery,
+                                      icon: Icon(Icons.photo),
+                                      label: Text("Choose photo")),),
 
 
                                 Padding(
@@ -100,8 +90,11 @@ class MenuList extends StatefulWidget {
                                       if (_formKey.currentState.validate()) {
                                         _formKey.currentState.save();
                                         setState(() {
-                                          foodDetail.add( FoodDetail(nameOfFood ,"Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b",rate));
-                                          Navigator.of(context, rootNavigator: true).pop('dialog');
+                                          foodDetail.add(FoodDetail(nameOfFood,
+                                              "Chow%20Mein.jpg?alt=media&token=242660c5-1369-4ad5-8077-eaba5835c66b",
+                                              rate));
+                                          Navigator.of(
+                                              context, rootNavigator: true).pop('dialog');
                                         });
                                       }
                                     },
@@ -116,10 +109,10 @@ class MenuList extends StatefulWidget {
                       });
                 },
                 child: Text("Add on menu list",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 15
-                )),
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15
+                    )),
               ),
               SizedBox(height: 20),
 
@@ -136,22 +129,25 @@ class MenuList extends StatefulWidget {
                             });
                           },
                           child: Row(
-                                children: <Widget>[
-                                  Text('${index+1}.',style:kMenuStyle),
-                                  Spacer(),
-                                  CircleAvatar(
-                                backgroundImage: NetworkImage("https://firebasestorage.googleapis.com/v0/b/timezero-2c099.appspot.com/o/images%2F${foodDetail[index].image}"),
+                            children: <Widget>[
+                              Text('${index + 1}.', style: kMenuStyle),
+                              Spacer(),
+                              CircleAvatar(
+                                backgroundImage: NetworkImage(
+                                    "https://firebasestorage.googleapis.com/v0/b/timezero-2c099.appspot.com/o/images%2F${foodDetail[index]
+                                        .image}"),
                                 minRadius: 20,
                                 maxRadius: 20,
-                                  ),
-                                  Spacer(),
-                                  Text(foodDetail[index].name,style:kMenuStyle),
+                              ),
+                              Spacer(),
+                              Text(foodDetail[index].name, style: kMenuStyle),
 
-                                  Spacer(),
-                                  Text("Rs. ${foodDetail[index].rate}",style:kMenuStyle),
+                              Spacer(),
+                              Text("Rs. ${foodDetail[index].rate}",
+                                  style: kMenuStyle),
 
-                                ],
-                              ));
+                            ],
+                          ));
                     }),
               )
 
@@ -159,4 +155,13 @@ class MenuList extends StatefulWidget {
           ),
         );
     }
+
+
+    void open_gallery() async {
+      var image = await ImagePicker.pickImage(source: ImageSource.gallery);
+      _image = image;
+    }
   }
+
+
+
