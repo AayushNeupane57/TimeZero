@@ -5,8 +5,7 @@ import 'components.dart';
 import 'database.dart';
 import 'restaurant.dart';
 //in fact these data should be obtained from database
-List<Hotel>restaurantNames = [kfc,dwarika,syanko,soltae,BurgerHouse];
-List<String>restaurantDistance = ["1", "2", "3", "4", "5"];
+
 
 class Home extends StatefulWidget {
   @override
@@ -15,7 +14,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
+  List<String>hotelName = ['Soltae','Dwarika Hotel','Syanko','KFC','Burger House'];
+  List<String> foodName = ['Momo','Sandwich','mango'];
   //tap helps us when we so search item when tapped on the text field and
   //aslo help to override the pop method or bak button
   bool tap=false;
@@ -45,11 +45,6 @@ class _HomeState extends State<Home> {
       }
       setState(() {});
     });
-  }
-
-  Future<String> _signOut() async{
-    await FirebaseAuth.instance.signOut();
-    return "User has Successfully signed out";
   }
 
   @override
@@ -100,11 +95,12 @@ class _HomeState extends State<Home> {
                 Container(
                   height: 275,
                   child: ListView.builder(
-                      itemCount: 5,
+                      itemCount: 3,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return ItemCardFood(
-                          h1:restaurantNames[index].foodItems[index],
+                            hotelName: hotelName[index],
+                            foodName: foodName[index]
                         );
                       }),
                 ),
@@ -163,11 +159,10 @@ class _HomeState extends State<Home> {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return ItemCard(
-                          h1: restaurantNames[index],
-                          distanceToDisplay:restaurantDistance[index],
+                          hotelName: hotelName[index],
                         );
-
-                      }),
+                      }
+                      ),
                 ),
               ],
             )));
@@ -210,7 +205,7 @@ class _HomeState extends State<Home> {
         Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => ShowItemDetail(foodItem: filteredNames[index]),
+              builder: (context) => ShowItemDetail(hotelName: filteredNames[index],foodName: filteredNames[index]),
             ));
       },
       child: Container(

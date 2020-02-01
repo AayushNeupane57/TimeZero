@@ -3,6 +3,7 @@ import 'database.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'counter.dart';
 import 'map.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 
@@ -37,12 +38,25 @@ class _Order extends State<Order> {
   }
 
   Widget OrderedItemCard(int index) {
-    return Container(
-        //provides the gap between container and rest surrounding element
-        margin: EdgeInsets.all(10),
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-          color: Colors.white,
+    StreamBuilder(
+        stream: Firestore.instance.collection(foodCartData[index].associatedHotel).document(foodCartData[index].itemName).snapshots(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+            case ConnectionState.waiting:
+              return Center(
+                  child: CircularProgressIndicator()
+              );
+            default:
+              return Container(
+                //provides the gap between container and rest surrounding element
+                  margin: EdgeInsets.all(10),
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
 
 //            boxShadow: [
 //              BoxShadow(
@@ -50,141 +64,151 @@ class _Order extends State<Order> {
 //                offset: Offset(0, 3),
 //                color: Colors.grey,
 //              )
-        ),
-        padding: EdgeInsets.all(15.0),
-        //margin: EdgeInsets.symmetric(horizontal: 9.0, vertical: 7.0),
-        child: Column(
-          children: <Widget>[
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Expanded(
-                  flex:3,
-                  child: ClipOval(
-                    child: Image.asset(_bookedItems[index].item.itemImage),
                   ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Expanded(
-                  flex: 2,
+                  padding: EdgeInsets.all(15.0),
+                  //margin: EdgeInsets.symmetric(horizontal: 9.0, vertical: 7.0),
                   child: Column(
                     children: <Widget>[
-                      Text(
-                        //notifications is a map and .keys properties of it returns an iterable which
-                        //need to be converterd to the string to print
-                        _bookedItems[index].item.itemName,
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "poppins",
-                        ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Expanded(
+                            flex: 3,
+                            child: ClipOval(
+                              child: Image.asset(snapshot.data['image']),
+//                                  _bookedItems[index].item.itemImage),
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Expanded(
+                            flex: 2,
+                            child: Column(
+                              children: <Widget>[
+                                Text(
+                                  //notifications is a map and .keys properties of it returns an iterable which
+                                  //need to be converterd to the string to print
+                                  _bookedItems[index].item.itemName,
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: "poppins",
+                                  ),
+                                ),
+
+                                SizedBox(height: 20),
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Column(
+                                    children: <Widget>[
+                                      Text(
+                                        "Time remaining",
+                                        style: TextStyle(
+                                          fontSize: 15,
+                                          fontStyle: FontStyle.italic,
+                                          fontFamily: "poppins",
+                                          color: Colors.black38,
+                                        ),
+                                      ),
+                                      Container(
+                                        width: 60.0,
+                                        padding: EdgeInsets.only(
+                                            top: 3.0, right: 4.0),
+                                        child: CountDownTimer(
+                                          secondsRemaining: (_bookedItems[index]
+                                              .durationSelected -
+                                              _bookedItems[index].stopwatch
+                                                  .elapsed)
+                                              .inSeconds,
+                                          whenTimeExpires: () {
+                                            //hasStoppedTimer(true)
+                                          },
+                                          countDownTimerStyle: TextStyle(
+                                              color: Color(0XFFf5a623),
+                                              fontSize: 14.0,
+
+                                              height: 1.2),
+                                        ),
+                                      ),
+                                      SizedBox(height: 20,),
+                                      Text("Destination", style:
+                                      TextStyle(
+                                          color: Colors.grey,
+                                          fontSize: 14.0,
+                                          height: 1.2),),
+
+                                      Text(
+                                        _bookedItems[index].hotel.name, style:
+                                      TextStyle(
+                                          color: Color(0XFFf5a623),
+                                          fontSize: 17.0,
+                                          height: 1.2),),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+
+                        ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Column(
+                              children: <Widget>[
+                                IconButton(
+                                  icon: Icon(Icons.call,
+                                    color: Colors.green,),
+                                  onPressed: () {
+                                    launch("tel:+9779867353344");
+                                  },
+                                ),
+                                GestureDetector(
+                                    child:
+                                    Text("Call Hotel",
+                                        style: TextStyle(
+                                            fontSize: 14)),
+                                    onTap: () {
+                                      print("CALL button  pressed");
+                                      launch("tel:+9779867353344");
+                                    }
+                                ),
+                              ]
+                          ),
+                          Spacer(),
+
+                          Map(_bookedItems[index].hotel.position),
+                          Spacer(),
+
+                          Column(
+                              children: <Widget>[
+                                IconButton(
+                                  icon: Icon(Icons.cancel,
+                                      color: Colors.red),
+                                  onPressed: () {
+                                    setState(() {
+                                      _bookedItems.removeAt(index);
+                                    });
+                                    print("cancel button  pressed");
+                                  },
+                                ),
+                                Text("Cancel Order",
+                                    style: TextStyle(
+                                        fontSize: 14)),
+
+                              ]
+                          ),
+
+
+                        ],
                       ),
 
-                      SizedBox(height:20),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: Column(
-                          children: <Widget>[
-                            Text(
-                              "Time remaining",
-                              style: TextStyle(
-                                fontSize: 15,
-                                fontStyle: FontStyle.italic,
-                                fontFamily: "poppins",
-                                color: Colors.black38,
-                              ),
-                            ),
-                            Container(
-                              width: 60.0,
-                              padding: EdgeInsets.only(top: 3.0, right: 4.0),
-                              child: CountDownTimer(
-                                secondsRemaining: (_bookedItems[index].durationSelected- _bookedItems[index].stopwatch.elapsed).inSeconds,
-                                whenTimeExpires: () {
-                                  //hasStoppedTimer(true)
-                                },
-                                countDownTimerStyle: TextStyle(
-                                    color: Color(0XFFf5a623),
-                                    fontSize: 14.0,
-
-                                    height: 1.2),
-                              ),
-                            ),
-                            SizedBox(height: 20,),
-                            Text("Destination",style:
-                            TextStyle(
-                                color: Colors.grey,
-                                fontSize: 14.0,
-                                height: 1.2),),
-
-                            Text(_bookedItems[index].hotel.name,style:
-                            TextStyle(
-                                color: Color(0XFFf5a623),
-                                fontSize: 17.0,
-                                height: 1.2),),
-                          ],
-                        ),
-                      ),
                     ],
-                  ),
-                ),
-                
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                Column(
-                    children:<Widget>[
-                      IconButton(
-                        icon: Icon(Icons.call,
-                          color: Colors.green,),
-                        onPressed: () {
-                          launch("tel:+9779867353344");
-                        },
-                      ),
-                      GestureDetector(
-                          child:
-                          Text("Call Hotel",
-                              style: TextStyle(
-                                  fontSize: 14)),
-                          onTap:(){
-                            print("CALL button  pressed");
-                            launch("tel:+9779867353344");
-                          }
-                      ),
-                    ]
-                ),
-                Spacer(),
-
-                Map(_bookedItems[index].hotel.position),
-                Spacer(),
-
-                Column(
-                    children:<Widget>[
-                      IconButton(
-                        icon: Icon(Icons.cancel,
-                            color:Colors.red),
-                        onPressed: () {
-                          setState(() {
-                            _bookedItems.removeAt(index);
-                          });
-                          print("cancel button  pressed");
-                        },
-                      ),
-                      Text("Cancel Order",
-                          style: TextStyle(
-                              fontSize: 14)),
-
-                    ]
-                ),
-
-
-              ],
-            ),
-
-    ],
-        ));
+                  ));
+          }
+        }
+    );
   }
 
   @override

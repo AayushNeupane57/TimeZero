@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'data.dart';
 
 class FoodCart extends StatefulWidget {
-  List<Items> foodCart;
+  List<Item> foodCart;
 
   FoodCart();
   FoodCart.add({this.foodCart});
@@ -67,7 +67,7 @@ class _FoodCartState extends State<FoodCart> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: Text(
-                    "Some related information here",
+                    widget.foodCart[index].associatedHotel,
                     style: TextStyle(
                       fontSize: 15,
                       fontStyle: FontStyle.italic,

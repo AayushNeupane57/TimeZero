@@ -15,9 +15,12 @@ List<FoodDetail> foodDetail = [
 ];
 
 
-
+int increment(int x){
+  x++;
+  return x;
+}
 class BookedDetails{
-  Items item;
+  Item item;
   Hotel hotel;
   DateTime orderedTime;
   Duration durationSelected;
@@ -44,8 +47,8 @@ List <BookedDetails> bookedDetails =
 
 
 
-List <Items>foodCartData=[
-  Items(itemName:"Burger ",itemImage:"images/burger.jpg",itemPrice:"100"),
+List <Item>foodCartData=[
+  Item(itemName:"Burger ",associatedHotel:"Soltae"),
 
 ];
 
