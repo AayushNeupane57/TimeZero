@@ -20,7 +20,7 @@ class _FoodRequestState extends State<FoodRequest> {
                 return new ListView(
                   children: snapshot.data.documents.map((DocumentSnapshot document) {
                     return new ListTile(
-                      title: new Text(document.data["itemName"].toString()),
+                      title: new Text(document.data["itemName"]),
                       subtitle: Column(
                         children: <Widget>[
                           Text("ordered Time : "+DateFormat.yMd().add_jm().format(document.data["orderedTime"].toDate().toLocal())),
@@ -29,17 +29,13 @@ class _FoodRequestState extends State<FoodRequest> {
                           Text(document.data["userName"].toString()),
                           Text(document.data["email"].toString()),
                          // Text("food item : " + document.data["itemName"].toString()),
-
                         ],
-
-
                       ),
                     );
                   }).toList(),
                 );
               },
             ),
-
         ),
       ),
     );

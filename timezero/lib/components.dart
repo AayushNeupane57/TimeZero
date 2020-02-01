@@ -1,84 +1,107 @@
 import 'package:flutter/material.dart';
 import 'package:timezero/database.dart';
 import 'restaurant.dart';
+import 'data.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 List<String> catagories = ["All", "Popular", "Dessert", "Snack", "Fast Food"];
 
-class ItemCard extends StatelessWidget {
-  final Hotel h1;
-  final String distanceToDisplay;
-
-  ItemCard({this.h1, this.distanceToDisplay});
+class ItemCard extends StatefulWidget {
+  final String hotelName;
+  ItemCard({this.hotelName});
 
   @override
+  _ItemCardState createState() => _ItemCardState();
+}
+
+class _ItemCardState extends State<ItemCard> {
+  Data data = new Data();
+  @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => RestaurantPage(
-                  hotel: h1, distanceOfRestaurant: distanceToDisplay),
-            ));
-      },
-      child: Container(
-        //provides the gap between container and rest surrounding element
-        margin: EdgeInsets.all(10),
-        width: MediaQuery.of(context).size.width / 2,
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(15),
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 5,
-                offset: Offset(0, 3),
-                color: Colors.grey,
-              )
-            ]),
-        padding: EdgeInsets.all(15.0),
-        //margin: EdgeInsets.symmetric(horizontal: 9.0, vertical: 7.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              child: ClipRect(
-                child: Image.asset(h1.image),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              h1.name,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                fontFamily: "poppins",
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Row(
-              children: <Widget>[
-                Icon(
-                  Icons.pin_drop,
-                  color: Colors.grey,
+    return StreamBuilder(
+        stream: Firestore.instance.collection('hotel').document(widget.hotelName).snapshots(),//data.getHotel(widget.hotelName),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+            case ConnectionState.waiting:
+              return Center(
+                  child: CircularProgressIndicator()
+              );
+            default:
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              RestaurantPage(hotelName: widget.hotelName)
+                      )
+                  );
+                },
+                child: Container(
+                  //provides the gap between container and rest surrounding element
+                  margin: EdgeInsets.all(10),
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width / 2,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 5,
+                          offset: Offset(0, 3),
+                          color: Colors.grey,
+                        )
+                      ]),
+                  padding: EdgeInsets.all(15.0),
+                  //margin: EdgeInsets.symmetric(horizontal: 9.0, vertical: 7.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Expanded(
+                        child: ClipRect(
+                          child: Image.asset(snapshot.data['image']),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        widget.hotelName,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "poppins",
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.pin_drop,
+                            color: Colors.grey,
+                          ),
+                          Text(
+                            "5 km far",
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          Spacer(),
+                          Flexible(
+                            flex: 3,
+                            child: DisplayRating(rating: snapshot.data['rating']),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
                 ),
-                Text(
-                  distanceToDisplay + " km far",
-                  style: TextStyle(color: Colors.grey),
-                ),
-                Spacer(),
-                Flexible(
-                  flex: 3,
-                  child: DisplayRating(rating: h1.rating),
-                )
-              ],
-            )
-          ],
-        ),
-      ),
+              );
+          }
+        }
     );
   }
 }
@@ -201,64 +224,85 @@ class RoundButton extends StatelessWidget {
   }
 }
 
-class ItemCardFood extends StatelessWidget {
-  final Items h1;
+class ItemCardFood extends StatefulWidget {
+  final String hotelName, foodName;
+  ItemCardFood({this.hotelName,this.foodName});
+  @override
+  _ItemCardFoodState createState() => _ItemCardFoodState();
+}
 
-  ItemCardFood({this.h1});
-
+class _ItemCardFoodState extends State<ItemCardFood> {
+  Data data = new Data();
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => ShowItemDetail(foodItem: h1),
-            ));
-      },
-      child: Container(
-        //provides the gap between container and rest surrounding element
-        margin: EdgeInsets.all(10),
-        width: MediaQuery.of(context).size.width / 2,
-        decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(15),
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 5,
-                offset: Offset(0, 3),
-                color: Colors.grey,
-              )
-            ]),
-        padding: EdgeInsets.all(15.0),
-        //margin: EdgeInsets.symmetric(horizontal: 9.0, vertical: 7.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Expanded(
-              child: ClipRect(
-                child: Image.asset(h1.itemImage),
-              ),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              h1.itemName,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-                fontFamily: "poppins",
-              ),
-            ),
-            Text(h1.associatedHotel,style:
-            TextStyle(
-                color: Color(0XFFf5a623),
-                fontSize: 17.0,
-                height: 1.2),),
-          ],
-        ),
-      ),
+    return StreamBuilder(
+        stream: Firestore.instance.collection(widget.hotelName).document(widget.foodName).snapshots(),
+        builder: (BuildContext context, AsyncSnapshot snapshot) {
+          switch (snapshot.connectionState) {
+            case ConnectionState.none:
+            case ConnectionState.waiting:
+              return Center(
+                  child: CircularProgressIndicator()
+              );
+            default:
+              return GestureDetector(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>
+                            ShowItemDetail(hotelName: widget.hotelName,foodName: widget.foodName),
+                      ));
+                },
+                child: Container(
+                  //provides the gap between container and rest surrounding element
+                  margin: EdgeInsets.all(10),
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width / 2,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 5,
+                          offset: Offset(0, 3),
+                          color: Colors.grey,
+                        )
+                      ]),
+                  padding: EdgeInsets.all(15.0),
+                  //margin: EdgeInsets.symmetric(horizontal: 9.0, vertical: 7.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Expanded(
+                        child: ClipRect(
+                          child: Image.asset(snapshot.data['image']),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Text(
+                        widget.foodName,
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "poppins",
+                        ),
+                      ),
+                      Text(widget.hotelName, style:
+                      TextStyle(
+                          color: Color(0XFFf5a623),
+                          fontSize: 17.0,
+                          height: 1.2),),
+                    ],
+                  ),
+                ),
+              );
+          }
+        }
     );
   }
 }
@@ -547,7 +591,7 @@ class _OrderScreenState extends State<OrderScreen> {
 }
 
 class FoodCart extends StatefulWidget {
-  List<Items> foodCart;
+  List<Item> foodCart;
   FoodCart();
   //this .add is a nave i gave it  to for a sake of fuctionality like overloaded constructor
   FoodCart.add({this.foodCart});
