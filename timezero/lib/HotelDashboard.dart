@@ -1,5 +1,6 @@
 import'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:timezero/FoodRequest.dart';
 import 'package:timezero/foodRequests.dart';
 import 'package:timezero/menulist.dart';
 import 'notifications.dart';
@@ -112,7 +113,7 @@ class _HotelDashboard extends State<HotelDashboard> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => FoodRequest(),
+                          builder: (context) =>FoodRequest(),
                         ));
                   },
                   child: myItems(Icons.fastfood, "Food Request", 0xffffa500)),
