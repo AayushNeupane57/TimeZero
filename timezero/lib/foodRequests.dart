@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:intl/intl.dart';
+import 'package:timezero/data.dart';
 
 class FoodRequest extends StatefulWidget {
   @override
@@ -10,6 +11,7 @@ class FoodRequest extends StatefulWidget {
 class _FoodRequestState extends State<FoodRequest> {
   var icon = Icons.help;
   String acceptText ="Accept Request ?";
+  bool accepted = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,17 +49,19 @@ class _FoodRequestState extends State<FoodRequest> {
                           padding: EdgeInsets.all(15.0),
                           child: Column(
                             children: <Widget>[
-                              Text("ordered Time : " +
-                                  DateFormat.yMd().add_jm().format(snapshot.data
-                                      .documents[index]["orderedTime"]
-                                      .toDate()
-                                      .toLocal())),
+                              Text("ordered Time : "
+//                                  DateFormat.yMd().add_jm().format(snapshot.data
+//                                      .documents[index]["orderedTime"]
+//                                      .toDate()
+//                                      .toLocal())
+                              ),
                               SizedBox(width: 30,),
-                              Text("arrival  : " +
-                                  DateFormat.yMd().add_jm().format(snapshot.data
-                                      .documents[index]["comingTime"]
-                                      .toDate()
-                                      .toLocal())),
+                              Text("arrival  : "
+//                                  DateFormat.yMd().add_jm().format(snapshot.data
+//                                      .documents[index]["comingTime"]
+//                                      .toDate()
+//                                      .toLocal())
+                              ),
                               Text(snapshot.data.documents[index]["userName"]
                                   .toString()),
                               Text(snapshot.data.documents[index]["email"]
@@ -75,6 +79,10 @@ class _FoodRequestState extends State<FoodRequest> {
                                             setState(() {
                                               icon = Icons.check_box;
                                               acceptText ="Accepted";
+                                              updatebookedDetails(snapshot.data.documents[index].documentID);
+                                              accepted = true;
+
+
                                             });
 
 
@@ -88,7 +96,11 @@ class _FoodRequestState extends State<FoodRequest> {
                                                 style: TextStyle(
                                                     fontSize: 14)),
                                             onTap: () {
-                                              print("Accept button  pressed");
+                                              setState(() {
+                                                icon = Icons.check_box;
+                                                acceptText ="Accepted";
+                                                accepted = true;
+                                              });
                                             }
                                         ),
                                       ]

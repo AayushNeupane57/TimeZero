@@ -25,6 +25,21 @@ void bookedDetailsd(String itemName, DateTime orderedTime, DateTime comingTime) 
     print("printing catch block");
   }
 }
+void updatebookedDetails(String id) async{
+  try
+  {
+    FirebaseUser user= await auth.currentuser();
+    await Firestore.instance.collection("BookedDetails").document(id).setData({
+      'accepted' : true
+    });
+    print("added");
+  }
+  catch(e)
+  {
+    print(e);
+    print("printing catch block");
+  }
+}
 
 void setFoodItems(String hotelName,String foodName,String image,String price) async
 {
